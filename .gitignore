@@ -1,0 +1,17 @@
+.idea
+etc
+system
+tests
+user_guide
+application.rar
+.editorconfig
+composer.json
+application/config/database.php
+application/config/config.php
+application/controllers/Crud.php
+application/models/Crud_model.php
+application/views/crud
+/crud
+contributing.md
+/vendor
+*.docx
