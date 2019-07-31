@@ -7,7 +7,7 @@ class Admin_cpu extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        if (!$this->session->userdata("admin"))
+        if ($this->session->userdata("user_type")!=1)
                     redirect(site_url('user/login'));
 
         $this->layout->setLayout('admin_layout');

@@ -16,20 +16,20 @@
                 <a href="<?php echo site_url();?>"><i class="fas fa-chart-line"></i> Dashboard</a>
             </li>
             <li>
-                <a href="<?php echo site_url('outsite')?>"><i class="fa fa-bus fa-fw"></i> ขอนุญาตไปราชการ<span class="fa arrow"></span></a>
+                <a href="<?php echo site_url('outsite')?>"><i class="fa fa-bus fa-fw"></i>ลงทะเบียนอุปกรณ์<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="<?php echo site_url('outsite/add_outsite_permit')?>">สร้างใบขอนุญาตปราชการ</a>
+                        <a href="<?php echo site_url('com_survey')?>">Computer</a>
                     </li>
                     <li>
-                        <a href="<?php echo site_url('outsite')?>">รายการขอนุญาตไปราชการของคุณ</a>
+                        <a href="<?php echo site_url('printer')?>">Printer</a>
                     </li>
                     <li>
-                        <a href="<?php echo site_url('outsite/all')?>">รายการขอนุญาตไปราชการทั้งหมด</a>
+                        <a href="<?php echo site_url('network')?>">อุปกรณ์เครือข่าย</a>
                     </li>
 
                     <li>
-                        <a href="<?php echo site_url('calendar/outsite')?>">ปฏิทินไปราชการ</a>
+                        <a href="<?php echo site_url('scanner')?>">Scanner</a>
                     </li>
 
                 </ul>
@@ -38,55 +38,20 @@
 
 
             <li>
-                <a href="#"><i class="fa fa-bus fa-fw"></i> ขอใช้รถราชการ<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-bus fa-fw"></i>รายงาน<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
-                    <li><a href="<?php echo site_url('/car/calendar')?>">ตารางการใช้รถ</a></li>
-                    <li><a href="<?php echo site_url('/car/cars')?>">รถยนต์ราชการ</a></li>
-                    <li><a href="<?php echo site_url('/car/drivers')?>"">พนักงานขับรถยนต์</a></li>
-                    <?PHP
-                    if(check_role('1',$this->session->userdata('id'))){
-                        echo "<li role=''><a href=".site_url('/car/approve_car').">อนุมัติการใช้รถยนต์ราชการ</a></li>";
-                    }
-                    ?>
+                    <li><a href="<?php echo site_url('/report/com_by_series')?>">จำนวนคอมพิวเตอร์ รายรุ่นปีที่เริ่มใช้งาน</a></li>
+                    <li><a href="<?php echo site_url('/report/com_by_status')?>">คอมพิวเตอร์ตามสถานะการใช้งาน</a></li>
+                    <li><a href="<?php echo site_url('/report/employee')?>"">จำนวนเจ้าหน้าที่ที่ไม่มีคอมพิวเตอร์ใช้</a></li>
 
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
-            <!--<li>
-                <a href="#"><i class="fas fa-calendar-plus"></i> จองห้องประชุม (รอก่อนนะ...)<span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li>
-                        <a href="#">Second Level Item</a>
-                    </li>
-                    <li>
-                        <a href="#">Second Level Item</a>
-                    </li>
-                    <li>
-                        <a href="#">Third Level <span class="fa arrow"></span></a>
-                        <ul class="nav nav-third-level">
-                            <li>
-                                <a href="#">Third Level Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Third Level Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Third Level Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Third Level Item</a>
-                            </li>
-                        </ul>
-
-                    </li>
-                </ul>
-
-            </li>-->
             <li>
-                <a href="<?php echo site_url('signin/')?>"><i class="far fa-calendar-check"></i> รายงานลงเวลาปฏิบัติราชการ</a>
+                <a href="<?php echo site_url('signin/')?>"><i class="far fa-calendar-check"></i> แจ้งซ่อม</a>
             </li>
             <li>
-                <a href="<?php echo site_url('admin/login')?>"><i class="far fa-calendar-check"></i></a>
+                <a href="<?php echo site_url('admin')?>"><i class="far fa-calendar-check"> Administrator</i></a>
             </li>
         </ul>
     </div>
