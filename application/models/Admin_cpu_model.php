@@ -10,14 +10,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Admin_cpu_model extends CI_Model
 {
     var $table = "ccpu";
-    var $order_column = Array('id','cpu','cpu_series',);
+    var $order_column = Array('id','name','cpu_series',);
 
     function make_query()
     {
         $this->db->from($this->table);
         if (isset($_POST["search"]["value"])) {
             $this->db->group_start();
-            $this->db->like("cpu", $_POST["search"]["value"]);
+            $this->db->like(" name", $_POST["search"]["value"]);
             $this->db->group_end();
 
         }
@@ -69,7 +69,7 @@ class Admin_cpu_model extends CI_Model
             {
 
                 $rs = $this->db
-                    ->set("id", $data["id"])->set("cpu", $data["cpu"])->set("cpu_series", $data["cpu_series"])
+                    ->set("id", $data["id"])->set("name", $data["name"])->set("cpu_series", $data["cpu_series"])
                     ->insert('ccpu');
 
                 return $rs;
@@ -78,7 +78,7 @@ class Admin_cpu_model extends CI_Model
     public function update_admin_cpu($data)
             {
                 $rs = $this->db
-                    ->set("id", $data["id"])->set("cpu", $data["cpu"])->set("cpu_series", $data["cpu_series"])->where("id",$data["id"])
+                    ->set("id", $data["id"])->set("name", $data["name"])->set("cpu_series", $data["cpu_series"])->where("id",$data["id"])
                     ->update('ccpu');
 
                 return $rs;
