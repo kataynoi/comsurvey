@@ -20,7 +20,7 @@ class Welcome extends CI_Controller
         $data['all_nb'] = $this->db->from('com_survey')->where('computertype',3)->count_all_results();
         //$data['count_usecar'] = $this->db->from('used_car')->count_all_results();
         //$data['count_approve_car'] = $this->db->from('used_car')->where('approve','1')->count_all_results();
-        $data['all_employee'] = $this->db->from('employee')->count_all_results();
+        $data['all_employee'] = $this->db->from('employee')->where('active',1)->count_all_results();
         $data['all_printer'] = '27';
         //$data['outsite_today'] = $this->db->select('id,permit_user,objective,invit_place,permit_start_date,permit_end_date')
          //   ->where("DATE_FORMAT(NOW(),'%Y-%m-%d') = permit_start_date")

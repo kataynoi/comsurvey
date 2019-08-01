@@ -83,11 +83,12 @@ class Admin_user_model extends CI_Model
 
     public function save_admin_user($data)
     {
-
+        if($data['password'] !=''){
+            $this->db->set('password', "PASSWORD('".$data['password']."')", false);
+        }
         $rs = $this->db
             ->set("id", $data["id"])
             ->set("username", $data["username"])
-            ->set('password', "PASSWORD('".$data['password']."')", false)
             ->set("name", $data["name"])
             ->set("user_type", $data["user_type"])
             ->set("email", $data["email"])
@@ -100,11 +101,12 @@ class Admin_user_model extends CI_Model
 
     public function update_admin_user($data)
     {
-
+        if($data['password'] !=''){
+            $this->db->set('password', "PASSWORD('".$data['password']."')", false);
+        }
         $rs = $this->db
             ->set("id", $data["id"])
             ->set("username", $data["username"])
-            ->set('password', "PASSWORD('".$data['password']."')", false)
             ->set("name", $data["name"])
             ->set("user_type", $data["user_type"])
             ->set("email", $data["email"])

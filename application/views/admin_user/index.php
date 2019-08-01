@@ -71,12 +71,7 @@
                         <option>-------</option>
                         <?php
                         foreach ($cuser_type as $r) {
-                            if ($data["invit_type"] == $r->id) {
-                                $s = "selected";
-                            } else {
-                                $s = "";
-                            }
-                            echo "<option value=$r->id $s > $r->name </option>";
+                            echo "<option value=$r->id > $r->name </option>";
                         } ?>
                     </select></div>
                 <div class="form-group">
