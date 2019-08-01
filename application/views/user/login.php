@@ -3,7 +3,7 @@
 <link href="<?php echo base_url()?>assets/vendor/css/bootstrap.css" rel="stylesheet">
 <link href="<?php echo base_url()?>assets/vendor/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue.css">
 <!------ Include the above in your HEAD tag ---------->
 <link href='https://fonts.googleapis.com/css?family=Kanit' rel='stylesheet'>
 <script type="text/javascript" charset="utf-8">
@@ -123,13 +123,7 @@
                      <i class="fa fa-bullhorn fa-2x"></i>  ประกาศ
                 </div>
                 <div class="panel-body">
-                    1.	ระบบจะทำการ Lock ใบขออนุญาตไปราชการห้ามแก้ไข 00.00 น. หลังจากการไปราชการ  1 วัน กรณีจำเป็นต้องแก้ไขให้ติดต่อ ผู้ดูแลระบบ
-                    <br>
-                    2.	ขอให้บุคคลากรทุกท่าน Login เข้าสู่ระบบ และแก้ไข User Profiles ให้ถูกต้อง ก่อนเริ่มใช้งานจริง
-                    <br>
-                    3.	ให้ทุกท่านแก้ไข กลุ่มงาน ให้ถูกต้องเพื่อเลขหนังสือที่ถูกต้อง
-                    <br>
-                    4. กรณีแก้ไขคำนำหน้า ให้ใช้ นางสาว แทน น.ส.
+                    1.
                     <br>
                 </div>
 
