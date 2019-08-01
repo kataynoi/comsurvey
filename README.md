@@ -2,13 +2,13 @@
 E Office
 ---
 
-#### วิธีเข้าใช้งาน โปรแกรม E-Office
+#### วิธีเข้าใช้งาน โปรแกรม Comsurvey
 ---
-> Login เข้าใช้งานระบบ E Office
-![Systen Setting](screenshot/ss1.png)
+> Login เข้าใช้งานระบบ Comsurvey
+![Systen Setting](screenshot/ss1.jpg)
 
-> บันทึกข้อมูลการขอไปราชการ
-![Systen Setting](screenshot/ss2.png)
+> บันทึกข้อมูลคอมพิวเตอร์
+![Systen Setting](screenshot/ss2.jpg)
 
-> ส่งออกเป็น PDF ไฟล์ เพื่อเสนอเซ็นต์
-![Systen Setting](screenshot/ss3.png)
+> กำหนดลักษณะพื้นฐาน
+![Systen Setting](screenshot/ss3.jpg)
