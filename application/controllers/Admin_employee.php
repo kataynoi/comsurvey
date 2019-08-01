@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin_cpu extends CI_Controller
+class Admin_employee extends CI_Controller
 {
     public $user_id;
 
@@ -9,22 +9,21 @@ class Admin_cpu extends CI_Controller
     {
         parent::__construct();
 
-        if ($this->session->userdata("user_type")!=1)
-            redirect(site_url('user/login'));
-        $this->layout->setLeft('layout/left_admin');
-        $this->layout->setLayout('admin_layout');
-        $this->load->model('Admin_cpu_model', 'crud');
+        //$this->layout->setLeft('layout/left');
+        //$this->layout->setLayout('admin_layout');
+        $this->load->model('Admin_employee_model', 'crud');
     }
 
     public function index()
     {
         $data[] = '';
-
-        $this->layout->view('admin_cpu/index', $data);
+        $data["cemployee_type"] = $this->crud->get_cemployee_type();
+        $data["cworkgroup"] = $this->crud->get_cworkgroup();
+        $this->layout->view('admin_employee/index', $data);
     }
 
 
-    function fetch_admin_cpu()
+    function fetch_admin_employee()
     {
         $fetch_data = $this->crud->make_datatables();
         $data = array();
@@ -33,8 +32,13 @@ class Admin_cpu extends CI_Controller
 
             $sub_array = array();
             $sub_array[] = $row->id;
+            $sub_array[] = $row->prename;
             $sub_array[] = $row->name;
-            $sub_array[] = $row->cpu_series;
+            $sub_array[] = $row->cid;
+            $sub_array[] = $row->position;
+            $sub_array[] = $row->employee_type;
+            $sub_array[] = $row->group;
+            $sub_array[] = $row->active;
             $sub_array[] = '<div class="btn-group" role="group" ><button class="btn btn-warning" data-btn="btn_edit" data-id="' . $row->id . '">Edit</button><button class="btn btn-danger" data-btn="btn_del" data-id="' . $row->id . '">Delete</button></div>';
             $data[] = $sub_array;
         }
@@ -47,11 +51,11 @@ class Admin_cpu extends CI_Controller
         echo json_encode($output);
     }
 
-    public function del_admin_cpu()
+    public function del_admin_employee()
     {
         $id = $this->input->post('id');
 
-        $rs = $this->crud->del_admin_cpu($id);
+        $rs = $this->crud->del_admin_employee($id);
         if ($rs) {
             $json = '{"success": true}';
         } else {
@@ -61,13 +65,13 @@ class Admin_cpu extends CI_Controller
         render_json($json);
     }
 
-    public function  save_admin_cpu()
+    public function  save_admin_employee()
     {
         $data = $this->input->post('items');
         if ($data['action'] == 'insert') {
-            $rs = $this->crud->save_admin_cpu($data);
+            $rs = $this->crud->save_admin_employee($data);
         } else if ($data['action'] == 'update') {
-            $rs = $this->crud->update_admin_cpu($data);
+            $rs = $this->crud->update_admin_employee($data);
         }
         if ($rs) {
             $json = '{"success": true}';
@@ -78,10 +82,10 @@ class Admin_cpu extends CI_Controller
         render_json($json);
     }
 
-    public function  get_admin_cpu()
+    public function  get_admin_employee()
     {
         $id = $this->input->post('id');
-        $rs = $this->crud->get_admin_cpu($id);
+        $rs = $this->crud->get_admin_employee($id);
         $rows = json_encode($rs);
         $json = '{"success": true, "rows": ' . $rows . '}';
         render_json($json);

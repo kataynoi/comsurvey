@@ -52,7 +52,8 @@
             </li>
             <li>
                 <a href="<?php echo site_url('admin_user')?>"><i class="fa fa-user fa-fw"></i> จัดการ Users</a>
-
+            </li>            <li>
+                <a href="<?php echo site_url('admin_employee')?>"><i class="fa fa-user fa-fw"></i> จัดการข้อมูลพนักงาน</a>
             </li>
 
         </ul>

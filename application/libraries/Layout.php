@@ -39,7 +39,6 @@ class Layout
         $loadedData = array();
         $loadedData['content_for_layout'] = $this->obj->load->view($view,$data,true);
         $loadedData['left_for_layout'] = $this->obj->load->view($this->left,$data,true);
-        $loadedData['left_admin_layout'] = $this->obj->load->view($this->leftAdmin,$data,true);
         $loadedData['header_for_layout'] = $this->obj->load->view($this->header,$data,true);
         $loadedData['footer_for_layout'] = $this->obj->load->view('layout/footer',$data,true);
 

@@ -87,7 +87,7 @@
         </div>
         <!-- /.navbar-static-side -->
         <div id="left_menu">
-            <?php echo $left_admin_layout?>
+            <?php echo $left_for_layout?>
         </div>
         <!-- /.navbar-static-side -->
     </nav>

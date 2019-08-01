@@ -61,7 +61,7 @@
 </div>
 
 
-<script src="<?php echo base_url() ?>assets/apps/js/Admin_office.js" charset="utf-8"></script>
+<script src="<?php echo base_url() ?>assets/apps/js/admin_office.js" charset="utf-8"></script>
 
 <!--         foreach ($invit_type as $r) {
                                 if ($outsite["invit_type"] == $r->id) {

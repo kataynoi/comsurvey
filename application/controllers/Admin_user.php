@@ -8,9 +8,9 @@ class Admin_user extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        if ($this->session->userdata("user_type") != 1)
+        if ($this->session->userdata("user_type")!=1)
             redirect(site_url('user/login'));
-
+        $this->layout->setLeft('layout/left_admin');
         $this->layout->setLayout('admin_layout');
         $this->load->model('Admin_user_model', 'crud');
     }

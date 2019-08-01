@@ -1,5 +1,8 @@
 $(document).ready(function () {
     var dataTable = $('#table_data').DataTable({
+        language: {
+            searchPlaceholder: "ค้นหา รุ่น,สถานที่ตั้ง,ผู้รับผิดชอบ"
+        },
         "processing": true,
         "serverSide": true,
         "order": [],
@@ -185,7 +188,7 @@ $(document).on('click', 'button[data-btn="btn_edit"]', function (e) {
 
 function validate(items) {
 
-if (!items.computertype) {
+    if (!items.computertype) {
         swal("กรุณาระบุประเภทคอมพิวเตอร์");
         $("#computertype").focus();
     } else if (!items.cbrand) {

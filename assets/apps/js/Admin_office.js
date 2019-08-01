@@ -6,7 +6,7 @@ $(document).ready(function () {
 
         "pageLength": 50,
         "ajax": {
-            url: site_url + '/Admin_office/fetch_Admin_office',
+            url: site_url + '/admin_office/fetch_Admin_office',
             data: {
                 'csrf_token': csrf_token
             },
@@ -26,7 +26,7 @@ var crud = {};
 
 crud.ajax = {
     del_data: function (id, cb) {
-        var url = '/Admin_office/del_Admin_office',
+        var url = '/admin_office/del_Admin_office',
             params = {
                 id: id
             }
@@ -35,7 +35,7 @@ crud.ajax = {
             err ? cb(err) : cb(null, data);
         });
     }, save: function (items, cb) {
-        var url = '/Admin_office/save_Admin_office',
+        var url = '/admin_office/save_Admin_office',
             params = {
                 items: items
             }
@@ -44,7 +44,7 @@ crud.ajax = {
             err ? cb(err) : cb(null, data);
         });
     }, get_update: function (id, cb) {
-        var url = '/Admin_office/get_Admin_office',
+        var url = '/admin_office/get_Admin_office',
             params = {
                 id: id
             }

@@ -9,21 +9,21 @@ class Admin_office extends CI_Controller
         parent::__construct();
 
         if ($this->session->userdata("user_type")!=1)
-                    redirect(site_url('user/login'));
-
+            redirect(site_url('user/login'));
+        $this->layout->setLeft('layout/left_admin');
         $this->layout->setLayout('admin_layout');
-        $this->load->model('Admin_office_model', 'crud');
+        $this->load->model('admin_office_model', 'crud');
     }
 
     public function index()
     {
         $data[] = '';
         
-        $this->layout->view('Admin_office/index', $data);
+        $this->layout->view('admin_office/index', $data);
     }
 
 
-    function fetch_Admin_office()
+    function fetch_admin_office()
     {
         $fetch_data = $this->crud->make_datatables();
         $data = array();
@@ -44,10 +44,10 @@ class Admin_office extends CI_Controller
         echo json_encode($output);
     }
 
-    public function del_Admin_office(){
+    public function del_admin_office(){
         $id = $this->input->post('id');
 
-        $rs=$this->crud->del_Admin_office($id);
+        $rs=$this->crud->del_admin_office($id);
         if($rs){
             $json = '{"success": true}';
         }else{
@@ -57,13 +57,13 @@ class Admin_office extends CI_Controller
         render_json($json);
     }
 
-    public function  save_Admin_office()
+    public function  save_admin_office()
     {
             $data = $this->input->post('items');
             if($data['action']=='insert'){
-                $rs=$this->crud->save_Admin_office($data);
+                $rs=$this->crud->save_admin_office($data);
             }else if($data['action']=='update'){
-                $rs=$this->crud->update_Admin_office($data);
+                $rs=$this->crud->update_admin_office($data);
             }
             if($rs){
                 $json = '{"success": true}';
@@ -74,10 +74,10 @@ class Admin_office extends CI_Controller
             render_json($json);
         }
 
-    public function  get_Admin_office()
+    public function  get_admin_office()
     {
                 $id = $this->input->post('id');
-                $rs = $this->crud->get_Admin_office($id);
+                $rs = $this->crud->get_admin_office($id);
                 $rows = json_encode($rs);
                 $json = '{"success": true, "rows": ' . $rows . '}';
                 render_json($json);

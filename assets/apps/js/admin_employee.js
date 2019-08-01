@@ -1,12 +1,15 @@
 $(document).ready(function() {
     var dataTable = $('#table_data').DataTable({
+        language: {
+            searchPlaceholder: "ค้นหา ชื่อสกุล,กลุ่มงาน"
+        },
         "processing": true,
         "serverSide": true,
         "order": [],
 
-        "pageLength": 10,
+        "pageLength": 50,
         "ajax": {
-            url: site_url + '/sscom_survey/fetch_sscom_survey',
+            url: site_url + '/admin_employee/fetch_admin_employee',
             data: {
                 'csrf_token': csrf_token
             },
@@ -26,7 +29,7 @@ var crud = {};
 
 crud .ajax = {
     del_data:function (id,cb){
-        var url = '/sscom_survey/del_sscom_survey',
+        var url = '/admin_employee/del_admin_employee',
             params = {
                 id: id
             }
@@ -35,7 +38,7 @@ crud .ajax = {
             err ? cb(err) : cb(null, data);
         });
     },save:function (items,cb){
-             var url = '/sscom_survey/save_sscom_survey',
+             var url = '/admin_employee/save_admin_employee',
                  params = {
                      items: items
                  }
@@ -44,7 +47,7 @@ crud .ajax = {
                  err ? cb(err) : cb(null, data);
              });
     },get_update:function (id,cb){
-                   var url = '/sscom_survey/get_sscom_survey',
+                   var url = '/admin_employee/get_admin_employee',
                        params = {
                            id: id
                        }
@@ -98,7 +101,7 @@ crud.get_update = function (id) {
 
 }
 crud.set_update = function (data) {
-    $("#id").val(data.rows["id"]);$("#computertype").val(data.rows["computertype"]);$("#cbrand").val(data.rows["cbrand"]);$("#cband_series").val(data.rows["cband_series"]);$("#ram").val(data.rows["ram"]);$("#cpu").val(data.rows["cpu"]);$("#harddisk").val(data.rows["harddisk"]);$("#operating_system").val(data.rows["operating_system"]);$("#office").val(data.rows["office"]);$("#owner").val(data.rows["owner"]);$("#co_workgroup").val(data.rows["co_workgroup"]);$("#location").val(data.rows["location"]);$("#start_year").val(data.rows["start_year"]);$("#ups").val(data.rows["ups"]);$("#use_status").val(data.rows["use_status"]);$("#serial_number").val(data.rows["serial_number"]);$("#note").val(data.rows["note"]);
+    $("#id").val(data.rows["id"]);$("#prename").val(data.rows["prename"]);$("#name").val(data.rows["name"]);$("#sex").val(data.rows["sex"]);$("#cid").val(data.rows["cid"]);$("#position").val(data.rows["position"]);$("#employee_type").val(data.rows["employee_type"]);$("#group").val(data.rows["group"]);$("#active").val(data.rows["active"]);
 }
 
 $('#btn_save').on('click', function (e) {
@@ -106,7 +109,7 @@ $('#btn_save').on('click', function (e) {
     var action;
     var items = {};
     items.action = $('#action').val();
-    items.id=$("#id").val();items.computertype=$("#computertype").val();items.cbrand=$("#cbrand").val();items.cband_series=$("#cband_series").val();items.ram=$("#ram").val();items.cpu=$("#cpu").val();items.harddisk=$("#harddisk").val();items.operating_system=$("#operating_system").val();items.office=$("#office").val();items.owner=$("#owner").val();items.co_workgroup=$("#co_workgroup").val();items.location=$("#location").val();items.start_year=$("#start_year").val();items.ups=$("#ups").val();items.use_status=$("#use_status").val();items.serial_number=$("#serial_number").val();items.note=$("#note").val();
+    items.id=$("#id").val();items.prename=$("#prename").val();items.name=$("#name").val();items.sex=$("#sex").val();items.cid=$("#cid").val();items.position=$("#position").val();items.employee_type=$("#employee_type").val();items.group=$("#group").val();items.active=$("#active").val();
 
           if(validate(items)){
                 crud.save(items);
@@ -153,7 +156,7 @@ $(document).on('click', 'button[data-btn="btn_edit"]', function(e) {
 
 function validate(items){
 
-    if (!items.id) { swal("กรุณาระบุID");$("#id").focus();}else if (!items.computertype) { swal("กรุณาระบุประเภทคอมพิวเตอร์");$("#computertype").focus();}else if (!items.cbrand) { swal("กรุณาระบุยี่ห้อ");$("#cbrand").focus();}else if (!items.cband_series) { swal("กรุณาระบุรุ่น");$("#cband_series").focus();}else if (!items.ram) { swal("กรุณาระบุRAM");$("#ram").focus();}else if (!items.cpu) { swal("กรุณาระบุCPU");$("#cpu").focus();}else if (!items.harddisk) { swal("กรุณาระบุHDD");$("#harddisk").focus();}else if (!items.operating_system) { swal("กรุณาระบุOS");$("#operating_system").focus();}else if (!items.office) { swal("กรุณาระบุOffice");$("#office").focus();}else if (!items.owner) { swal("กรุณาระบุผู้รับผิดชอบ");$("#owner").focus();}else if (!items.co_workgroup) { swal("กรุณาระบุกลุ่มงาน");$("#co_workgroup").focus();}else if (!items.location) { swal("กรุณาระบุสถานที่ตั้ง");$("#location").focus();}else if (!items.start_year) { swal("กรุณาระบุปีที่เริ่มใช้งาน");$("#start_year").focus();}else if (!items.ups) { swal("กรุณาระบุUPS");$("#ups").focus();}else if (!items.use_status) { swal("กรุณาระบุสถานะการใช้งาน");$("#use_status").focus();}else if (!items.serial_number) { swal("กรุณาระบุ");$("#serial_number").focus();}else if (!items.note) { swal("กรุณาระบุบันทึกเพิ่มเติม");$("#note").focus();}
+    if (!items.id) { swal("กรุณาระบุID");$("#id").focus();}else if (!items.prename) { swal("กรุณาระบุคำนำหน้า");$("#prename").focus();}else if (!items.name) { swal("กรุณาระบุชื่อสกุล");$("#name").focus();}else if (!items.sex) { swal("กรุณาระบุเพศ");$("#sex").focus();}else if (!items.cid) { swal("กรุณาระบุเลขประจำตัวประชาชน");$("#cid").focus();}else if (!items.position) { swal("กรุณาระบุตำแหน่ง");$("#position").focus();}else if (!items.employee_type) { swal("กรุณาระบุประเภทพนักงาน");$("#employee_type").focus();}else if (!items.group) { swal("กรุณาระบุกลุ่มงาน");$("#group").focus();}else if (!items.active) { swal("กรุณาระบุสถานะการใช้งาน");$("#active").focus();}
     else{
         return true;
     }
