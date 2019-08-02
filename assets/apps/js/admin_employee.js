@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
     var dataTable = $('#table_data').DataTable({
         language: {
             searchPlaceholder: "ค้นหา ชื่อสกุล,กลุ่มงาน"
@@ -27,8 +27,8 @@ $(document).ready(function() {
 
 var crud = {};
 
-crud .ajax = {
-    del_data:function (id,cb){
+crud.ajax = {
+    del_data: function (id, cb) {
         var url = '/admin_employee/del_admin_employee',
             params = {
                 id: id
@@ -37,28 +37,28 @@ crud .ajax = {
         app.ajax(url, params, function (err, data) {
             err ? cb(err) : cb(null, data);
         });
-    },save:function (items,cb){
-             var url = '/admin_employee/save_admin_employee',
-                 params = {
-                     items: items
-                 }
+    }, save: function (items, cb) {
+        var url = '/admin_employee/save_admin_employee',
+            params = {
+                items: items
+            }
 
-             app.ajax(url, params, function (err, data) {
-                 err ? cb(err) : cb(null, data);
-             });
-    },get_update:function (id,cb){
-                   var url = '/admin_employee/get_admin_employee',
-                       params = {
-                           id: id
-                       }
+        app.ajax(url, params, function (err, data) {
+            err ? cb(err) : cb(null, data);
+        });
+    }, get_update: function (id, cb) {
+        var url = '/admin_employee/get_admin_employee',
+            params = {
+                id: id
+            }
 
-                   app.ajax(url, params, function (err, data) {
-                       err ? cb(err) : cb(null, data);
-                   });
+        app.ajax(url, params, function (err, data) {
+            err ? cb(err) : cb(null, data);
+        });
     }
 
 };
-crud.del_data = function(id){
+crud.del_data = function (id) {
 
     crud.ajax.del_data(id, function (err, data) {
         if (err) {
@@ -79,8 +79,8 @@ crud.save = function (items) {
             swal(err);
         }
         else {
-                swal('แก้ไขข้อมูลเรียบร้อยแล้ว ');
-                location.reload();
+            swal('แก้ไขข้อมูลเรียบร้อยแล้ว ');
+            location.reload();
         }
     });
 
@@ -93,15 +93,23 @@ crud.get_update = function (id) {
             swal(err);
         }
         else {
-                //swal('แก้ไขข้อมูลเรียบร้อยแล้ว ');
-                //location.reload();
-                crud.set_update(data);
+            //swal('แก้ไขข้อมูลเรียบร้อยแล้ว ');
+            //location.reload();
+            crud.set_update(data);
         }
     });
 
 }
 crud.set_update = function (data) {
-    $("#id").val(data.rows["id"]);$("#prename").val(data.rows["prename"]);$("#name").val(data.rows["name"]);$("#sex").val(data.rows["sex"]);$("#cid").val(data.rows["cid"]);$("#position").val(data.rows["position"]);$("#employee_type").val(data.rows["employee_type"]);$("#group").val(data.rows["group"]);$("#active").val(data.rows["active"]);
+    $("#id").val(data.rows["id"]);
+    $("#prename").val(data.rows["prename"]);
+    $("#name").val(data.rows["name"]);
+    $("#sex").val(data.rows["sex"]);
+    $("#cid").val(data.rows["cid"]);
+    $("#position").val(data.rows["position"]);
+    $("#employee_type").val(data.rows["employee_type"]);
+    $("#group").val(data.rows["group"]);
+    $("#active").val(data.rows["active"]);
 }
 
 $('#btn_save').on('click', function (e) {
@@ -109,11 +117,19 @@ $('#btn_save').on('click', function (e) {
     var action;
     var items = {};
     items.action = $('#action').val();
-    items.id=$("#id").val();items.prename=$("#prename").val();items.name=$("#name").val();items.sex=$("#sex").val();items.cid=$("#cid").val();items.position=$("#position").val();items.employee_type=$("#employee_type").val();items.group=$("#group").val();items.active=$("#active").val();
+    items.id = $("#id").val();
+    items.prename = $("#prename").val();
+    items.name = $("#name").val();
+    items.sex = $("#sex").val();
+    items.cid = $("#cid").val();
+    items.position = $("#position").val();
+    items.employee_type = $("#employee_type").val();
+    items.group = $("#group").val();
+    items.active = $("#active").val();
 
-          if(validate(items)){
-                crud.save(items);
-            }
+    if (validate(items)) {
+        crud.save(items);
+    }
 
 });
 
@@ -122,7 +138,7 @@ $('#add_data').on('click', function (e) {
     app.clear_form();
 });
 
-$(document).on('click', 'button[data-btn="btn_del"]', function(e) {
+$(document).on('click', 'button[data-btn="btn_del"]', function (e) {
     e.preventDefault();
     var id = $(this).data('id');
     var td = $(this).parent().parent().parent();
@@ -136,15 +152,15 @@ $(document).on('click', 'button[data-btn="btn_del"]', function(e) {
             'Yes !'
         ],
         dangerMode: true,
-    }).then(function(isConfirm){
-        if(isConfirm){
+    }).then(function (isConfirm) {
+        if (isConfirm) {
             crud.del_data(id);
             td.hide();
         }
     });
 });
 
-$(document).on('click', 'button[data-btn="btn_edit"]', function(e) {
+$(document).on('click', 'button[data-btn="btn_edit"]', function (e) {
     e.preventDefault();
     var id = $(this).data('id');
     $('#action').val('update');
@@ -154,10 +170,34 @@ $(document).on('click', 'button[data-btn="btn_edit"]', function(e) {
 
 });
 
-function validate(items){
+function validate(items) {
 
-    if (!items.id) { swal("กรุณาระบุID");$("#id").focus();}else if (!items.prename) { swal("กรุณาระบุคำนำหน้า");$("#prename").focus();}else if (!items.name) { swal("กรุณาระบุชื่อสกุล");$("#name").focus();}else if (!items.sex) { swal("กรุณาระบุเพศ");$("#sex").focus();}else if (!items.cid) { swal("กรุณาระบุเลขประจำตัวประชาชน");$("#cid").focus();}else if (!items.position) { swal("กรุณาระบุตำแหน่ง");$("#position").focus();}else if (!items.employee_type) { swal("กรุณาระบุประเภทพนักงาน");$("#employee_type").focus();}else if (!items.group) { swal("กรุณาระบุกลุ่มงาน");$("#group").focus();}else if (!items.active) { swal("กรุณาระบุสถานะการใช้งาน");$("#active").focus();}
-    else{
+    if (!items.prename) {
+        swal("กรุณาระบุคำนำหน้า");
+        $("#prename").focus();
+    } else if (!items.name) {
+        swal("กรุณาระบุชื่อสกุล");
+        $("#name").focus();
+    } else if (!items.sex) {
+        swal("กรุณาระบุเพศ");
+        $("#sex").focus();
+    } else if (!items.cid) {
+        swal("กรุณาระบุเลขประจำตัวประชาชน");
+        $("#cid").focus();
+    } else if (!items.position) {
+        swal("กรุณาระบุตำแหน่ง");
+        $("#position").focus();
+    } else if (!items.employee_type) {
+        swal("กรุณาระบุประเภทพนักงาน");
+        $("#employee_type").focus();
+    } else if (!items.group) {
+        swal("กรุณาระบุกลุ่มงาน");
+        $("#group").focus();
+    } else if (!items.active) {
+        swal("กรุณาระบุสถานะการใช้งาน");
+        $("#active").focus();
+    }
+    else {
         return true;
     }
 

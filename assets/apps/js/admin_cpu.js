@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
     var dataTable = $('#table_data').DataTable({
         "processing": true,
         "serverSide": true,
@@ -24,8 +24,8 @@ $(document).ready(function() {
 
 var crud = {};
 
-crud .ajax = {
-    del_data:function (id,cb){
+crud.ajax = {
+    del_data: function (id, cb) {
         var url = '/admin_cpu/del_admin_cpu',
             params = {
                 id: id
@@ -34,28 +34,28 @@ crud .ajax = {
         app.ajax(url, params, function (err, data) {
             err ? cb(err) : cb(null, data);
         });
-    },save:function (items,cb){
-             var url = '/admin_cpu/save_admin_cpu',
-                 params = {
-                     items: items
-                 }
+    }, save: function (items, cb) {
+        var url = '/admin_cpu/save_admin_cpu',
+            params = {
+                items: items
+            }
 
-             app.ajax(url, params, function (err, data) {
-                 err ? cb(err) : cb(null, data);
-             });
-    },get_update:function (id,cb){
-                   var url = '/admin_cpu/get_admin_cpu',
-                       params = {
-                           id: id
-                       }
+        app.ajax(url, params, function (err, data) {
+            err ? cb(err) : cb(null, data);
+        });
+    }, get_update: function (id, cb) {
+        var url = '/admin_cpu/get_admin_cpu',
+            params = {
+                id: id
+            }
 
-                   app.ajax(url, params, function (err, data) {
-                       err ? cb(err) : cb(null, data);
-                   });
+        app.ajax(url, params, function (err, data) {
+            err ? cb(err) : cb(null, data);
+        });
     }
 
 };
-crud.del_data = function(id){
+crud.del_data = function (id) {
 
     crud.ajax.del_data(id, function (err, data) {
         if (err) {
@@ -76,8 +76,8 @@ crud.save = function (items) {
             swal(err);
         }
         else {
-                swal('แก้ไขข้อมูลเรียบร้อยแล้ว ');
-                location.reload();
+            swal('แก้ไขข้อมูลเรียบร้อยแล้ว ');
+            location.reload();
         }
     });
 
@@ -90,15 +90,17 @@ crud.get_update = function (id) {
             swal(err);
         }
         else {
-                //swal('แก้ไขข้อมูลเรียบร้อยแล้ว ');
-                //location.reload();
-                crud.set_update(data);
+            //swal('แก้ไขข้อมูลเรียบร้อยแล้ว ');
+            //location.reload();
+            crud.set_update(data);
         }
     });
 
 }
 crud.set_update = function (data) {
-    $("#id").val(data.rows["id"]);$("#name").val(data.rows["name"]);$("#cpu_series").val(data.rows["cpu_series"]);
+    $("#id").val(data.rows["id"]);
+    $("#name").val(data.rows["name"]);
+    $("#cpu_series").val(data.rows["cpu_series"]);
 }
 
 $('#btn_save').on('click', function (e) {
@@ -106,11 +108,13 @@ $('#btn_save').on('click', function (e) {
     var action;
     var items = {};
     items.action = $('#action').val();
-    items.id=$("#id").val();items.name=$("#name").val();items.cpu_series=$("#cpu_series").val();
+    items.id = $("#id").val();
+    items.name = $("#name").val();
+    items.cpu_series = $("#cpu_series").val();
 
-          if(validate(items)){
-                crud.save(items);
-            }
+    if (validate(items)) {
+        crud.save(items);
+    }
 
 });
 
@@ -119,7 +123,7 @@ $('#add_data').on('click', function (e) {
     app.clear_form();
 });
 
-$(document).on('click', 'button[data-btn="btn_del"]', function(e) {
+$(document).on('click', 'button[data-btn="btn_del"]', function (e) {
     e.preventDefault();
     var id = $(this).data('id');
     var td = $(this).parent().parent().parent();
@@ -133,15 +137,15 @@ $(document).on('click', 'button[data-btn="btn_del"]', function(e) {
             'Yes !'
         ],
         dangerMode: true,
-    }).then(function(isConfirm){
-        if(isConfirm){
+    }).then(function (isConfirm) {
+        if (isConfirm) {
             crud.del_data(id);
             td.hide();
         }
     });
 });
 
-$(document).on('click', 'button[data-btn="btn_edit"]', function(e) {
+$(document).on('click', 'button[data-btn="btn_edit"]', function (e) {
     e.preventDefault();
     var id = $(this).data('id');
     $('#action').val('update');
@@ -151,10 +155,16 @@ $(document).on('click', 'button[data-btn="btn_edit"]', function(e) {
 
 });
 
-function validate(items){
+function validate(items) {
 
-    if (!items.id) { swal("กรุณาระบุID");$("#id").focus();}else if (!items.name) { swal("กรุณาระบุประเภทCPU");$("#name").focus();}else if (!items.cpu_series) { swal("กรุณาระบุรหัสย่อย CPU");$("#cpu_series").focus();}
-    else{
+   if (!items.name) {
+        swal("กรุณาระบุประเภทCPU");
+        $("#name").focus();
+    } else if (!items.cpu_series) {
+        swal("กรุณาระบุรหัสย่อย CPU");
+        $("#cpu_series").focus();
+    }
+    else {
         return true;
     }
 

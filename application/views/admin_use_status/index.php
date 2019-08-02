@@ -10,8 +10,10 @@
     <div class="panel panel-info ">
         <div class="panel-heading w3-theme">
             <i class="fa fa-user fa-2x "></i> สถานะการใช้งานอุปกรณ์
-             <button class="btn btn-success pull-right" id="add_data" data-toggle="modal" data-target="#frmModal"><i class="fa fa-plus-circle"></i> Add</button>
-</span>
+            <button class="btn btn-success pull-right" id="add_data" data-toggle="modal" data-target="#frmModal"><i
+                    class="fa fa-plus-circle"></i> Add
+            </button>
+            </span>
 
         </div>
         <div class="panel-body">
@@ -19,7 +21,8 @@
             <table id="table_data" class="table table-responsive">
                 <thead>
                 <tr>
-                    <th>ID</th><th>ชื่อสถานะการใช้งาน</th>
+                    <th>ID</th>
+                    <th>ชื่อสถานะการใช้งาน</th>
                     <th>#</th>
                 </tr>
                 </thead>
@@ -33,31 +36,35 @@
 
 
 <div class="modal fade" id="frmModal">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
 
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">เพิ่มสถานะการใช้งานอุปกรณ์</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">เพิ่มสถานะการใช้งานอุปกรณ์</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
 
-      <!-- Modal body -->
-      <div class="modal-body">
-        <input type="hidden" id="action" value="insert"><div class="form-group">
-                    <label for="id">ID</label>
-                    <input type="text" class="form-control" id="id" placeholder="ID" value=""></div><div class="form-group">
+            <!-- Modal body -->
+            <div class="modal-body">
+                <input type="hidden" id="action" value="insert">
+
+                <div class="form-group">
+
+                    <input type="hidden" class="form-control" id="id" placeholder="ID" value=""></div>
+                <div class="form-group">
                     <label for="name">ชื่อสถานะการใช้งาน</label>
                     <input type="text" class="form-control" id="name" placeholder="ชื่อสถานะการใช้งาน" value=""></div>
-      </div>
+            </div>
 
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-success" id="btn_save">Save</button><button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-      </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" id="btn_save">Save</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
 
+        </div>
     </div>
-  </div>
 </div>
 
 

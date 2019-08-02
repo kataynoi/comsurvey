@@ -51,8 +51,8 @@
                 <input type="hidden" id="action" value="insert">
 
                 <div class="form-group">
-                    <label for="id">ID</label>
-                    <input type="text" class="form-control" id="id" placeholder="ID" value=""></div>
+
+                    <input type="hidden" class="form-control" id="id" placeholder="ID" value=""></div>
                 <div class="form-group">
                     <label for="name">ประเภทCPU</label>
                     <input type="text" class="form-control" id="name" placeholder="ประเภทCPU" value=""></div>

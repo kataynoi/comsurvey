@@ -45,8 +45,8 @@
       <!-- Modal body -->
       <div class="modal-body">
         <input type="hidden" id="action" value="insert"><div class="form-group">
-                    <label for="id">ID</label>
-                    <input type="text" class="form-control" id="id" placeholder="ID" value="" disabled></div><div class="form-group">
+
+                    <input type="hidden" class="form-control" id="id" placeholder="ID" value="" disabled></div><div class="form-group">
                     <label for="name">ชื่อโปรแกรม Office</label>
                     <input type="text" class="form-control" id="name" placeholder="ชื่อโปรแกรม Office" value=""></div>
       </div>

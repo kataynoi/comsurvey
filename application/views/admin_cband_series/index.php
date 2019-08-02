@@ -45,19 +45,14 @@
       <!-- Modal body -->
       <div class="modal-body">
         <input type="hidden" id="action" value="insert"><div class="form-group">
-                    <label for="id">ID</label>
-                    <input type="text" class="form-control" id="id" placeholder="ID" value=""></div><div class="form-group">
+
+                    <input type="hidden" class="form-control" id="id" placeholder="ID" value=""></div><div class="form-group">
                     <label for="brand">ยี่ห้อ</label>
                     <select  class="form-control" id="brand" placeholder="ยี่ห้อ" value="">
                         <option>-------</option>
                         <?php
-                        foreach ($brand as $r) {
-                                if ($data["invit_type"] == $r->id) {
-                                    $s = "selected";
-                                } else {
-                                    $s = "";
-                                }
-                                echo "<option value=$r->id $s > $r->name </option>";} ?>
+                                echo "<option value=$r->id > $r->name </option>";
+                        ?>
                     </select></div><div class="form-group">
                     <label for="name">รุ่น</label>
                     <input type="text" class="form-control" id="name" placeholder="รุ่น" value=""></div>

@@ -45,8 +45,8 @@
       <!-- Modal body -->
       <div class="modal-body">
         <input type="hidden" id="action" value="insert"><div class="form-group">
-                    <label for="id">รหัส</label>
-                    <input type="text" class="form-control" id="id" placeholder="รหัส" value="" disabled></div><div class="form-group">
+
+                    <input type="hidden" class="form-control" id="id" placeholder="รหัส" value="" disabled></div><div class="form-group">
                     <label for="name">ยี่ห้อ</label>
                     <input type="text" class="form-control" id="name" placeholder="ยี่ห้อ" value=""></div>
       </div>

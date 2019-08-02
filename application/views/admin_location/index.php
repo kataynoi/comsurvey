@@ -45,8 +45,8 @@
       <!-- Modal body -->
       <div class="modal-body">
         <input type="hidden" id="action" value="insert"><div class="form-group">
-                    <label for="id">ID</label>
-                    <input type="text" class="form-control" id="id" placeholder="ID" value=""></div><div class="form-group">
+
+                    <input type="hidden" class="form-control" id="id" placeholder="ID" value=""></div><div class="form-group">
                     <label for="name">สถานที่ตั้งอุปกรณ์</label>
                     <input type="text" class="form-control" id="name" placeholder="สถานที่ตั้งอุปกรณ์" value=""></div>
       </div>
