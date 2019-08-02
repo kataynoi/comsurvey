@@ -9,15 +9,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 class Admin_cband_series_model extends CI_Model
 {
-    var $table = "cband_series";
+    var $table = "cband_series as a";
     var $order_column = Array('id','brand','name',);
 
     function make_query()
     {
-        $this->db->from($this->table);
+        $this->db->select('a.id,b.name as brand,a.name')
+            ->join('cbrand as b','a.brand = b.id')
+            ->from($this->table);
         if (isset($_POST["search"]["value"])) {
             $this->db->group_start();
-            $this->db->like("brand", $_POST["search"]["value"]);$this->db->or_like("name", $_POST["search"]["value"]);
+            $this->db->like("b.name", $_POST["search"]["value"]);
+            $this->db->or_like("a.name", $_POST["search"]["value"]);
             $this->db->group_end();
 
         }
