@@ -9,8 +9,10 @@ class Admin_employee extends CI_Controller
     {
         parent::__construct();
 
-        //$this->layout->setLeft('layout/left');
-        //$this->layout->setLayout('admin_layout');
+        if ($this->session->userdata("user_type")!=1)
+            redirect(site_url('user/login'));
+        $this->layout->setLeft('layout/left_admin');
+        $this->layout->setLayout('admin_layout');
         $this->load->model('Admin_employee_model', 'crud');
     }
 
