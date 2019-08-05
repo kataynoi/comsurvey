@@ -25,11 +25,6 @@
                 <!-- /.nav-second-level -->
 
             </li>
-            <li>
-                <a href="<?php echo site_url('admin_user')?>"><i class="fa fa-user fa-fw"></i> จัดการ Users</a>
-
-            </li>
-
         </ul>
     </div>
     <!-- /.sidebar-collapse -->

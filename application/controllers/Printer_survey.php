@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin_employee extends CI_Controller
+class Printer_survey extends CI_Controller
 {
     public $user_id;
 
@@ -9,23 +9,23 @@ class Admin_employee extends CI_Controller
     {
         parent::__construct();
 
-        if ($this->session->userdata("user_type")!=1)
-            redirect(site_url('user/login'));
-        $this->layout->setLeft('layout/left_admin');
-        $this->layout->setLayout('admin_layout');
-        $this->load->model('Admin_employee_model', 'crud');
+        //$this->layout->setLeft('layout/left');
+        //$this->layout->setLayout('admin_layout');
+        $this->load->model('Printer_survey_model', 'crud');
     }
 
     public function index()
     {
         $data[] = '';
-        $data["cemployee_type"] = $this->crud->get_cemployee_type();
-        $data["cworkgroup"] = $this->crud->get_cworkgroup();
-        $this->layout->view('admin_employee/index', $data);
+        $data["cprintertype"] = $this->crud->get_cprintertype();
+        $data["cbrand"] = $this->crud->get_cbrand();
+        $data["clocation"] = $this->crud->get_clocation();
+        $data["cuse_status"] = $this->crud->get_cuse_status();
+        $this->layout->view('printer_survey/index', $data);
     }
 
 
-    function fetch_admin_employee()
+    function fetch_printer_survey()
     {
         $fetch_data = $this->crud->make_datatables();
         $data = array();
@@ -34,13 +34,16 @@ class Admin_employee extends CI_Controller
 
             $sub_array = array();
             $sub_array[] = $row->id;
-            $sub_array[] = $row->prename;
-            $sub_array[] = $row->name;
-            $sub_array[] = $row->cid;
-            $sub_array[] = $row->position;
-            $sub_array[] = $row->employee_type;
-            $sub_array[] = $row->group;
-            $sub_array[] = $row->active==1?'ใช้งาน':'ระงับการใช้งาน';
+            $sub_array[] = $row->printertype;
+            //$sub_array[] = $row->brand;
+            $sub_array[] = $row->printer_series;
+            //$sub_array[] = $row->printer_color;
+            $sub_array[] = $row->port;
+            $sub_array[] = $row->location;
+            //$sub_array[] = $row->start_user;
+            //$sub_array[] = $row->use_status;
+            //$sub_array[] = $row->serial_number;
+            $sub_array[] = "<a href='http://".$row->ip."' target='blank'> <i class='fa fa-external-link' aria-hidden='true'></i> ".$row->ip."</a>";
             $sub_array[] = '<div class="btn-group" role="group" ><button class="btn btn-warning" data-btn="btn_edit" data-id="' . $row->id . '">Edit</button><button class="btn btn-danger" data-btn="btn_del" data-id="' . $row->id . '">Delete</button></div>';
             $data[] = $sub_array;
         }
@@ -53,11 +56,11 @@ class Admin_employee extends CI_Controller
         echo json_encode($output);
     }
 
-    public function del_admin_employee()
+    public function del_printer_survey()
     {
         $id = $this->input->post('id');
 
-        $rs = $this->crud->del_admin_employee($id);
+        $rs = $this->crud->del_printer_survey($id);
         if ($rs) {
             $json = '{"success": true}';
         } else {
@@ -67,13 +70,13 @@ class Admin_employee extends CI_Controller
         render_json($json);
     }
 
-    public function  save_admin_employee()
+    public function  save_printer_survey()
     {
         $data = $this->input->post('items');
         if ($data['action'] == 'insert') {
-            $rs = $this->crud->save_admin_employee($data);
+            $rs = $this->crud->save_printer_survey($data);
         } else if ($data['action'] == 'update') {
-            $rs = $this->crud->update_admin_employee($data);
+            $rs = $this->crud->update_printer_survey($data);
         }
         if ($rs) {
             $json = '{"success": true}';
@@ -84,10 +87,10 @@ class Admin_employee extends CI_Controller
         render_json($json);
     }
 
-    public function  get_admin_employee()
+    public function  get_printer_survey()
     {
         $id = $this->input->post('id');
-        $rs = $this->crud->get_admin_employee($id);
+        $rs = $this->crud->get_printer_survey($id);
         $rows = json_encode($rs);
         $json = '{"success": true, "rows": ' . $rows . '}';
         render_json($json);

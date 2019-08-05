@@ -22,7 +22,7 @@
                         <a href="<?php echo site_url('com_survey')?>">Computer</a>
                     </li>
                     <li>
-                        <a href="<?php echo site_url('printer')?>">Printer</a>
+                        <a href="<?php echo site_url('printer_survey')?>">Printer</a>
                     </li>
                     <li>
                         <a href="<?php echo site_url('network')?>">อุปกรณ์เครือข่าย</a>

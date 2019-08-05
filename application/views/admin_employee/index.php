@@ -67,7 +67,10 @@
                     <input type="text" class="form-control" id="name" placeholder="ชื่อสกุล" value=""></div>
                 <div class="form-group">
                     <label for="sex">เพศ</label>
-                    <input type="text" class="form-control" id="sex" placeholder="เพศ" value=""></div>
+                    <select class="form-control" id="sex"  value="">
+                        <option value="1">ชาย</option>
+                        <option value="2">หญิง</option>
+                    </select>
                 <div class="form-group">
                     <label for="cid">เลขประจำตัวประชาชน</label>
                     <input type="text" class="form-control" id="cid" placeholder="เลขประจำตัวประชาชน" value=""></div>
@@ -94,7 +97,12 @@
                     </select></div>
                 <div class="form-group">
                     <label for="active">สถานะการใช้งาน</label>
-                    <input type="text" class="form-control" id="active" placeholder="สถานะการใช้งาน" value=""></div>
+                    <select class="form-control" id="active"  value="">
+                        <option value="0">ระงับการใช้งาน</option>
+                        <option value="1">ใช้งาน</option>
+                    </select>
+
+                </div>
             </div>
 
             <!-- Modal footer -->
