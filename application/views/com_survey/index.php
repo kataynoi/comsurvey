@@ -76,11 +76,11 @@
                                 }
                                 echo "<option value=$r->id $s > $r->name </option>";} ?>
                     </select></div><div class="form-group">
-                    <label for="cband_series">รุ่น</label>
-                    <select  class="form-control" id="cband_series" placeholder="รุ่น" value="">
+                    <label for="cbrand_series">รุ่น</label>
+                    <select  class="form-control" id="cbrand_series" placeholder="รุ่น" value="">
                         <option>-------</option>
                         <?php
-                        foreach ($cband_series as $r) {
+                        foreach ($cbrand_series as $r) {
                                 if ($data["invit_type"] == $r->id) {
                                     $s = "selected";
                                 } else {

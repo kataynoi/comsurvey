@@ -7,17 +7,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *
 
  */
-class Admin_cpu_model extends CI_Model
+class Admin_switchtype_model extends CI_Model
 {
-    var $table = "ccpu";
-    var $order_column = Array('id','name','cpu_series',);
+    var $table = "cswitchtype";
+    var $order_column = Array('id','name',);
 
     function make_query()
     {
         $this->db->from($this->table);
         if (isset($_POST["search"]["value"])) {
             $this->db->group_start();
-            $this->db->like(" name", $_POST["search"]["value"]);
+            $this->db->like("name", $_POST["search"]["value"]);
             $this->db->group_end();
 
         }
@@ -55,45 +55,40 @@ class Admin_cpu_model extends CI_Model
 
 
     /* End Datatable*/
-    public function del_admin_cpu($id)
+    public function del_admin_switchtype($id)
         {
         $rs = $this->db
             ->where('id', $id)
-            ->delete('ccpu');
+            ->delete('cswitchtype');
         return $rs;
         }
 
         
 
-    public function save_admin_cpu($data)
+    public function save_admin_switchtype($data)
             {
 
                 $rs = $this->db
-                    ->set("id", $data["id"])
-                    ->set("name", $data["name"])
-                    ->set("cpu_series", $data["cpu_series"])
-                    ->insert('ccpu');
+                    ->set("id", $data["id"])->set("name", $data["name"])
+                    ->insert('cswitchtype');
 
                 return $rs;
 
             }
-    public function update_admin_cpu($data)
+    public function update_admin_switchtype($data)
             {
                 $rs = $this->db
-                    ->set("id", $data["id"])
-                    ->set("name", $data["name"])
-                    ->set("cpu_series", $data["cpu_series"])
-                    ->where("id",$data["id"])
-                    ->update('ccpu');
+                    ->set("id", $data["id"])->set("name", $data["name"])->where("id",$data["id"])
+                    ->update('cswitchtype');
 
                 return $rs;
 
             }
-    public function get_admin_cpu($id)
+    public function get_admin_switchtype($id)
                 {
                     $rs = $this->db
                         ->where('id',$id)
-                        ->get("ccpu")
+                        ->get("cswitchtype")
                         ->row();
                     return $rs;
                 }

@@ -104,7 +104,7 @@ crud.set_update = function (data) {
     $("#id").val(data.rows["id"]);
     $("#computertype").val(data.rows["computertype"]);
     $("#cbrand").val(data.rows["cbrand"]);
-    $("#cband_series").val(data.rows["cband_series"]);
+    $("#cbrand_series").val(data.rows["cbrand_series"]);
     $("#ram").val(data.rows["ram"]);
     $("#cpu").val(data.rows["cpu"]);
     $("#harddisk").val(data.rows["harddisk"]);
@@ -128,7 +128,7 @@ $('#btn_save').on('click', function (e) {
     items.id = $("#id").val();
     items.computertype = $("#computertype").val();
     items.cbrand = $("#cbrand").val();
-    items.cband_series = $("#cband_series").val();
+    items.cbrand_series = $("#cbrand_series").val();
     items.ram = $("#ram").val();
     items.cpu = $("#cpu").val();
     items.harddisk = $("#harddisk").val();
@@ -194,9 +194,9 @@ function validate(items) {
     } else if (!items.cbrand) {
         swal("กรุณาระบุยี่ห้อ");
         $("#cbrand").focus();
-    } else if (!items.cband_series) {
+    } else if (!items.cbrand_series) {
         swal("กรุณาระบุรุ่น");
-        $("#cband_series").focus();
+        $("#cbrand_series").focus();
     } else if (!items.ram) {
         swal("กรุณาระบุRAM");
         $("#ram").focus();

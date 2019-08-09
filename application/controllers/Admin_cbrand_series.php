@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin_cband_series extends CI_Controller
+class Admin_cbrand_series extends CI_Controller
 {
     public $user_id;
     public function __construct()
@@ -11,18 +11,18 @@ class Admin_cband_series extends CI_Controller
             redirect(site_url('user/login'));
         $this->layout->setLeft('layout/left_admin');
         $this->layout->setLayout('admin_layout');
-        $this->load->model('Admin_cband_series_model', 'crud');
+        $this->load->model('Admin_cbrand_series_model', 'crud');
     }
 
     public function index()
     {
         $data[] = '';
         $data["brand"] = $this->crud->get_brand();
-        $this->layout->view('admin_cband_series/index', $data);
+        $this->layout->view('admin_cbrand_series/index', $data);
     }
 
 
-    function fetch_admin_cband_series()
+    function fetch_admin_cbrand_series()
     {
         $fetch_data = $this->crud->make_datatables();
         $data = array();
@@ -43,10 +43,10 @@ class Admin_cband_series extends CI_Controller
         echo json_encode($output);
     }
 
-    public function del_admin_cband_series(){
+    public function del_admin_cbrand_series(){
         $id = $this->input->post('id');
 
-        $rs=$this->crud->del_admin_cband_series($id);
+        $rs=$this->crud->del_admin_cbrand_series($id);
         if($rs){
             $json = '{"success": true}';
         }else{
@@ -56,13 +56,13 @@ class Admin_cband_series extends CI_Controller
         render_json($json);
     }
 
-    public function  save_admin_cband_series()
+    public function  save_admin_cbrand_series()
     {
             $data = $this->input->post('items');
             if($data['action']=='insert'){
-                $rs=$this->crud->save_admin_cband_series($data);
+                $rs=$this->crud->save_admin_cbrand_series($data);
             }else if($data['action']=='update'){
-                $rs=$this->crud->update_admin_cband_series($data);
+                $rs=$this->crud->update_admin_cbrand_series($data);
             }
             if($rs){
                 $json = '{"success": true}';
@@ -73,10 +73,10 @@ class Admin_cband_series extends CI_Controller
             render_json($json);
         }
 
-    public function  get_admin_cband_series()
+    public function  get_admin_cbrand_series()
     {
                 $id = $this->input->post('id');
-                $rs = $this->crud->get_admin_cband_series($id);
+                $rs = $this->crud->get_admin_cbrand_series($id);
                 $rows = json_encode($rs);
                 $json = '{"success": true, "rows": ' . $rows . '}';
                 render_json($json);

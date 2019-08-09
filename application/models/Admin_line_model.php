@@ -7,17 +7,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *
 
  */
-class Admin_cpu_model extends CI_Model
+class Admin_line_model extends CI_Model
 {
-    var $table = "ccpu";
-    var $order_column = Array('id','name','cpu_series',);
+    var $table = "cbrand";
+    var $order_column = Array('id','name',);
 
     function make_query()
     {
         $this->db->from($this->table);
         if (isset($_POST["search"]["value"])) {
             $this->db->group_start();
-            $this->db->like(" name", $_POST["search"]["value"]);
+            $this->db->like("name", $_POST["search"]["value"]);
             $this->db->group_end();
 
         }
@@ -55,45 +55,40 @@ class Admin_cpu_model extends CI_Model
 
 
     /* End Datatable*/
-    public function del_admin_cpu($id)
+    public function del_admin_brand($id)
         {
         $rs = $this->db
             ->where('id', $id)
-            ->delete('ccpu');
+            ->delete('cbrand');
         return $rs;
         }
 
         
 
-    public function save_admin_cpu($data)
+    public function save_admin_brand($data)
             {
 
                 $rs = $this->db
-                    ->set("id", $data["id"])
-                    ->set("name", $data["name"])
-                    ->set("cpu_series", $data["cpu_series"])
-                    ->insert('ccpu');
+                    ->set("id", $data["id"])->set("name", $data["name"])
+                    ->insert('cbrand');
 
                 return $rs;
 
             }
-    public function update_admin_cpu($data)
+    public function update_admin_brand($data)
             {
                 $rs = $this->db
-                    ->set("id", $data["id"])
-                    ->set("name", $data["name"])
-                    ->set("cpu_series", $data["cpu_series"])
-                    ->where("id",$data["id"])
-                    ->update('ccpu');
+                    ->set("id", $data["id"])->set("name", $data["name"])->where("id",$data["id"])
+                    ->update('cbrand');
 
                 return $rs;
 
             }
-    public function get_admin_cpu($id)
+    public function get_admin_brand($id)
                 {
                     $rs = $this->db
                         ->where('id',$id)
-                        ->get("ccpu")
+                        ->get("cbrand")
                         ->row();
                     return $rs;
                 }

@@ -10,13 +10,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Com_survey_model extends CI_Model
 {
     var $table = "com_survey as a";
-    var $order_column = Array('id','computertype','cband_series','location','start_year','owner');
+    var $order_column = Array('id','computertype','cbrand_series','location','start_year','owner');
 
     function make_query()
     {
-        $this->db->select('a.id,b.name as computertype,c.name as cband_series,d.name as location,a.start_year,e.name as owner')
+        $this->db->select('a.id,b.name as computertype,c.name as cbrand_series,d.name as location,a.start_year,e.name as owner')
             ->join('computertype as b','a.computertype = b.id')
-            ->join('cband_series as c','a.cband_series = c.id')
+            ->join('cbrand_series as c','a.cbrand_series = c.id')
             ->join('clocation as d','a.location = d.id')
             ->join('employee as e','a.owner = e.id')
             ->from($this->table);
@@ -93,15 +93,15 @@ class Com_survey_model extends CI_Model
                         ->get("cbrand")
                         ->row();
                     return $rs?$rs->name:"";
-                }public function get_cband_series(){
+                }public function get_cbrand_series(){
                         $rs = $this->db
-                        ->get("cband_series")
+                        ->get("cbrand_series")
                         ->result();
-                        return $rs;}    public function get_cband_series_name($id)
+                        return $rs;}    public function get_cbrand_series_name($id)
                 {
                     $rs = $this->db
                         ->where("id",$id)
-                        ->get("cband_series")
+                        ->get("cbrand_series")
                         ->row();
                     return $rs?$rs->name:"";
                 }public function get_ccpu(){
@@ -187,7 +187,7 @@ class Com_survey_model extends CI_Model
             {
 
                 $rs = $this->db
-                    ->set("id", $data["id"])->set("computertype", $data["computertype"])->set("cbrand", $data["cbrand"])->set("cband_series", $data["cband_series"])->set("ram", $data["ram"])->set("cpu", $data["cpu"])->set("harddisk", $data["harddisk"])->set("operating_system", $data["operating_system"])->set("office", $data["office"])->set("owner", $data["owner"])->set("co_workgroup", $data["co_workgroup"])->set("location", $data["location"])->set("start_year", $data["start_year"])->set("ups", $data["ups"])->set("use_status", $data["use_status"])->set("serial_number", $data["serial_number"])->set("note", $data["note"])
+                    ->set("id", $data["id"])->set("computertype", $data["computertype"])->set("cbrand", $data["cbrand"])->set("cbrand_series", $data["cbrand_series"])->set("ram", $data["ram"])->set("cpu", $data["cpu"])->set("harddisk", $data["harddisk"])->set("operating_system", $data["operating_system"])->set("office", $data["office"])->set("owner", $data["owner"])->set("co_workgroup", $data["co_workgroup"])->set("location", $data["location"])->set("start_year", $data["start_year"])->set("ups", $data["ups"])->set("use_status", $data["use_status"])->set("serial_number", $data["serial_number"])->set("note", $data["note"])
                     ->insert('com_survey');
 
                 return $rs;
@@ -196,7 +196,7 @@ class Com_survey_model extends CI_Model
     public function update_com_survey($data)
             {
                 $rs = $this->db
-                    ->set("id", $data["id"])->set("computertype", $data["computertype"])->set("cbrand", $data["cbrand"])->set("cband_series", $data["cband_series"])->set("ram", $data["ram"])->set("cpu", $data["cpu"])->set("harddisk", $data["harddisk"])->set("operating_system", $data["operating_system"])->set("office", $data["office"])->set("owner", $data["owner"])->set("co_workgroup", $data["co_workgroup"])->set("location", $data["location"])->set("start_year", $data["start_year"])->set("ups", $data["ups"])->set("use_status", $data["use_status"])->set("serial_number", $data["serial_number"])->set("note", $data["note"])->where("id",$data["id"])
+                    ->set("id", $data["id"])->set("computertype", $data["computertype"])->set("cbrand", $data["cbrand"])->set("cbrand_series", $data["cbrand_series"])->set("ram", $data["ram"])->set("cpu", $data["cpu"])->set("harddisk", $data["harddisk"])->set("operating_system", $data["operating_system"])->set("office", $data["office"])->set("owner", $data["owner"])->set("co_workgroup", $data["co_workgroup"])->set("location", $data["location"])->set("start_year", $data["start_year"])->set("ups", $data["ups"])->set("use_status", $data["use_status"])->set("serial_number", $data["serial_number"])->set("note", $data["note"])->where("id",$data["id"])
                     ->update('com_survey');
 
                 return $rs;

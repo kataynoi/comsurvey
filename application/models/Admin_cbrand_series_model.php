@@ -7,9 +7,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *
 
  */
-class Admin_cband_series_model extends CI_Model
+class Admin_cbrand_series_model extends CI_Model
 {
-    var $table = "cband_series as a";
+    var $table = "cbrand_series as a";
     var $order_column = Array('id','brand','name',);
 
     function make_query()
@@ -58,11 +58,11 @@ class Admin_cband_series_model extends CI_Model
 
 
     /* End Datatable*/
-    public function del_admin_cband_series($id)
+    public function del_admin_cbrand_series($id)
         {
         $rs = $this->db
             ->where('id', $id)
-            ->delete('cband_series');
+            ->delete('cbrand_series');
         return $rs;
         }
 
@@ -72,30 +72,30 @@ class Admin_cband_series_model extends CI_Model
                         ->result();
                         return $rs;}
 
-    public function save_admin_cband_series($data)
+    public function save_admin_cbrand_series($data)
             {
 
                 $rs = $this->db
                     ->set("id", $data["id"])->set("brand", $data["brand"])->set("name", $data["name"])
-                    ->insert('cband_series');
+                    ->insert('cbrand_series');
 
                 return $rs;
 
             }
-    public function update_admin_cband_series($data)
+    public function update_admin_cbrand_series($data)
             {
                 $rs = $this->db
                     ->set("id", $data["id"])->set("brand", $data["brand"])->set("name", $data["name"])->where("id",$data["id"])
-                    ->update('cband_series');
+                    ->update('cbrand_series');
 
                 return $rs;
 
             }
-    public function get_admin_cband_series($id)
+    public function get_admin_cbrand_series($id)
                 {
                     $rs = $this->db
                         ->where('id',$id)
-                        ->get("cband_series")
+                        ->get("cbrand_series")
                         ->row();
                     return $rs;
                 }

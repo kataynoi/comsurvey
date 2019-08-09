@@ -6,7 +6,7 @@ $(document).ready(function () {
 
         "pageLength": 50,
         "ajax": {
-            url: site_url + '/admin_cband_series/fetch_admin_cband_series',
+            url: site_url + '/admin_cbrand_series/fetch_admin_cbrand_series',
             data: {
                 'csrf_token': csrf_token
             },
@@ -26,7 +26,7 @@ var crud = {};
 
 crud.ajax = {
     del_data: function (id, cb) {
-        var url = '/admin_cband_series/del_admin_cband_series',
+        var url = '/admin_cbrand_series/del_admin_cbrand_series',
             params = {
                 id: id
             }
@@ -35,7 +35,7 @@ crud.ajax = {
             err ? cb(err) : cb(null, data);
         });
     }, save: function (items, cb) {
-        var url = '/admin_cband_series/save_admin_cband_series',
+        var url = '/admin_cbrand_series/save_admin_cbrand_series',
             params = {
                 items: items
             }
@@ -44,7 +44,7 @@ crud.ajax = {
             err ? cb(err) : cb(null, data);
         });
     }, get_update: function (id, cb) {
-        var url = '/admin_cband_series/get_admin_cband_series',
+        var url = '/admin_cbrand_series/get_admin_cbrand_series',
             params = {
                 id: id
             }

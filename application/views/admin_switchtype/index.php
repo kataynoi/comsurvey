@@ -9,7 +9,7 @@
 <div class="row">
     <div class="panel panel-info ">
         <div class="panel-heading w3-theme">
-            <i class="fa fa-user fa-2x "></i> รุ่น ของอุปกรณ์
+            <i class="fa fa-user fa-2x "></i> ประเภท Switch
              <button class="btn btn-success pull-right" id="add_data" data-toggle="modal" data-target="#frmModal"><i class="fa fa-plus-circle"></i> Add</button>
 </span>
 
@@ -19,7 +19,7 @@
             <table id="table_data" class="table table-responsive">
                 <thead>
                 <tr>
-                    <th>ID</th><th>ยี่ห้อ</th><th>รุ่น</th>
+                    <th>ID</th><th>ประเภท Switch</th>
                     <th>#</th>
                 </tr>
                 </thead>
@@ -38,24 +38,17 @@
 
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">เพิ่มรุ่น ของอุปกรณ์</h4>
+        <h4 class="modal-title">เพิ่มประเภท Switch</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
       <!-- Modal body -->
       <div class="modal-body">
         <input type="hidden" id="action" value="insert"><div class="form-group">
-
-                    <input type="hidden" class="form-control" id="id" placeholder="ID" value=""></div><div class="form-group">
-                    <label for="brand">ยี่ห้อ</label>
-                    <select  class="form-control" id="brand" placeholder="ยี่ห้อ" value="">
-                        <option>-------</option>
-                        <?php
-                                echo "<option value=$r->id > $r->name </option>";
-                        ?>
-                    </select></div><div class="form-group">
-                    <label for="name">รุ่น</label>
-                    <input type="text" class="form-control" id="name" placeholder="รุ่น" value=""></div>
+                    <label for="id"></label>
+                    <input type="text" class="form-control" id="id" placeholder="" value=""></div><div class="form-group">
+                    <label for="name">ประเภท Switch</label>
+                    <input type="text" class="form-control" id="name" placeholder="ประเภท Switch" value=""></div>
       </div>
 
       <!-- Modal footer -->
@@ -68,7 +61,7 @@
 </div>
 
 
-<script src="<?php echo base_url() ?>assets/apps/js/admin_cband_series.js" charset="utf-8"></script>
+<script src="<?php echo base_url() ?>assets/apps/js/admin_switchtype.js" charset="utf-8"></script>
 
 <!--         foreach ($invit_type as $r) {
                                 if ($outsite["invit_type"] == $r->id) {

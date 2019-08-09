@@ -16,6 +16,7 @@
                 <div class="panel-footer">
                     <span class="pull-left">รายละเอียด</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+
                     <div class="clearfix"></div>
                 </div>
             </a>
@@ -34,10 +35,11 @@
                     </div>
                 </div>
             </div>
-            <a href="<?php echo site_url('com_survey');?>">
+            <a href="<?php echo site_url('com_survey'); ?>">
                 <div class="panel-footer">
                     <span class="pull-left">รายละเอียด</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+
                     <div class="clearfix"></div>
                 </div>
             </a>
@@ -60,6 +62,7 @@
                 <div class="panel-footer">
                     <span class="pull-left">รายละเอียดเพิ่มเติม</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+
                     <div class="clearfix"></div>
                 </div>
             </a>
@@ -78,10 +81,11 @@
                     </div>
                 </div>
             </div>
-            <a href="#">
+            <a href="<?php echo site_url('printer_survey');?>">
                 <div class="panel-footer">
                     <span class="pull-left">รายละเอียดเพิ่มเติม</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+
                     <div class="clearfix"></div>
                 </div>
             </a>
@@ -89,3 +93,25 @@
     </div>
 </div>
 
+<div class='row'>
+    <div class='col col-lg-6'>
+        <div class="panel panel-success">
+            <div class="panel-heading ">
+                xxxx
+            </div>
+            <div class="panel-body">
+                xxxxxxxx
+            </div>
+        </div>
+    </div>
+    <div class='col col-lg-6'>
+        <div class="panel  panel-info">
+            <div class="panel-heading">
+                xxxx
+            </div>
+            <div class="panel-body">
+                xxxxxxxx
+            </div>
+        </div>
+    </div>
+</div>

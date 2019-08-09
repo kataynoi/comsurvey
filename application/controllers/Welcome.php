@@ -18,7 +18,7 @@ class Welcome extends CI_Controller
         $data['all_pc'] = $this->db->from('com_survey')->where('computertype',2)->count_all_results();
         $data['all_nb'] = $this->db->from('com_survey')->where('computertype',3)->count_all_results();;
         $data['all_employee'] = $this->db->from('employee')->where('active',1)->count_all_results();
-        $data['all_printer'] = '27';
+        $data['all_printer'] = $this->db->from('printer_survey')->count_all_results();
         $this->layout->view('dashboard/index_view', $data);
     }
 }
