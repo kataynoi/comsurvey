@@ -9,7 +9,7 @@
 <div class="row">
     <div class="panel panel-info ">
         <div class="panel-heading w3-theme">
-            <i class="fa fa-user fa-2x "></i> จัดการ CPU
+            <i class="fa fa-user fa-2x "></i> ประเภท CPU
             <button class="btn btn-success pull-right" id="add_data" data-toggle="modal" data-target="#frmModal"><i
                     class="fa fa-plus-circle"></i> Add
             </button>
@@ -42,13 +42,14 @@
 
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">เพิ่มจัดการ CPU</h4>
+                <h4 class="modal-title">เพิ่มประเภท CPU</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
 
             <!-- Modal body -->
             <div class="modal-body">
                 <input type="hidden" id="action" value="insert">
+                <input type="hidden" class="form-control" id="row_id" placeholder="ROWID" value="">
 
                 <div class="form-group">
 
@@ -64,7 +65,7 @@
             <!-- Modal footer -->
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" id="btn_save">Save</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" id="btn_close" data-dismiss="modal">Close</button>
             </div>
 
         </div>

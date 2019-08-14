@@ -63,11 +63,18 @@ class Admin_workgroup_model extends CI_Model
         return $rs;
         }
 
-        public function get_mas_users(){
+        public function get_employee(){
                         $rs = $this->db
                         ->get("employee")
                         ->result();
-                        return $rs;}
+                        return $rs;}    public function get_supervisors_name($id)
+                {
+                    $rs = $this->db
+                        ->where("id",$id)
+                        ->get("employee")
+                        ->row();
+                    return $rs?$rs->name:"";
+                }
 
     public function save_admin_workgroup($data)
             {
@@ -76,7 +83,7 @@ class Admin_workgroup_model extends CI_Model
                     ->set("id", $data["id"])->set("name", $data["name"])->set("tel", $data["tel"])->set("fax", $data["fax"])->set("book_number", $data["book_number"])->set("supervisors", $data["supervisors"])->set("note", $data["note"])
                     ->insert('cworkgroup');
 
-                return $rs;
+                return $this->db->insert_id();
 
             }
     public function update_admin_workgroup($data)

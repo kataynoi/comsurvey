@@ -9,7 +9,7 @@ class Admin_employee extends CI_Controller
     {
         parent::__construct();
 
-        if ($this->session->userdata("user_type") != 1)
+        if ($this->session->userdata("user_type")!=1)
             redirect(site_url('user/login'));
         $this->layout->setLeft('layout/left_admin');
         $this->layout->setLayout('admin_layout');
@@ -36,16 +36,12 @@ class Admin_employee extends CI_Controller
             $sub_array[] = $row->id;
             $sub_array[] = $row->prename;
             $sub_array[] = $row->name;
-            //$sub_array[] = $row->sex;
             $sub_array[] = $row->cid;
             $sub_array[] = $row->position;
             $sub_array[] = $row->employee_type;
             $sub_array[] = $row->group;
-            $sub_array[] = $row->active==1?'<button class="btn btn-outline btn-success"><i class="fa fa-check-circle" style="color: #009900"></i></button>':'<button class="btn btn-outline btn-danger"><i class="fa fa-times"></i></button>';
-            $sub_array[] = '<div class="btn-group pull-right text-center" role="group" >
-                <button class="btn btn-outline btn-success" data-btn="btn_view" data-id="' . $row->id . '"><i class="fa fa-eye"></i></button>
-                <button class="btn btn-outline btn-warning" data-btn="btn_edit" data-id="' . $row->id . '"><i class="fa fa-edit"></i></button>
-                <button class="btn btn-outline btn-danger" data-btn="btn_del" data-id="' . $row->id . '"><i class="fa fa-trash"></i></button></div>';
+            $sub_array[] = $row->active==1?'ใช้งาน':'ระงับการใช้งาน';
+            $sub_array[] = '<div class="btn-group" role="group" ><button class="btn btn-warning" data-btn="btn_edit" data-id="' . $row->id . '">Edit</button><button class="btn btn-danger" data-btn="btn_del" data-id="' . $row->id . '">Delete</button></div>';
             $data[] = $sub_array;
         }
         $output = array(
@@ -76,18 +72,13 @@ class Admin_employee extends CI_Controller
         $data = $this->input->post('items');
         if ($data['action'] == 'insert') {
             $rs = $this->crud->save_admin_employee($data);
-            if ($rs) {
-                $json = '{"success": true,"id":' . $rs . '}';
-            } else {
-                $json = '{"success": false}';
-            }
         } else if ($data['action'] == 'update') {
             $rs = $this->crud->update_admin_employee($data);
-            if ($rs) {
-                $json = '{"success": true}';
-            } else {
-                $json = '{"success": false}';
-            }
+        }
+        if ($rs) {
+            $json = '{"success": true}';
+        } else {
+            $json = '{"success": false}';
         }
 
         render_json($json);

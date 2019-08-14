@@ -32,6 +32,7 @@ class Admin_cbrand_series_model extends CI_Model
         }
     }
 
+
     function make_datatables()
     {
         $this->make_query();
@@ -66,11 +67,7 @@ class Admin_cbrand_series_model extends CI_Model
         return $rs;
         }
 
-        public function get_brand(){
-                        $rs = $this->db
-                        ->get("cbrand")
-                        ->result();
-                        return $rs;}
+        
 
     public function save_admin_cbrand_series($data)
             {
@@ -79,7 +76,7 @@ class Admin_cbrand_series_model extends CI_Model
                     ->set("id", $data["id"])->set("brand", $data["brand"])->set("name", $data["name"])
                     ->insert('cbrand_series');
 
-                return $rs;
+                return $this->db->insert_id();
 
             }
     public function update_admin_cbrand_series($data)

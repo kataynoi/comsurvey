@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Admin_office_model extends CI_Model
 {
     var $table = "coffice";
-    var $order_column = Array('id', 'name',);
+    var $order_column = Array('id','name',);
 
     function make_query()
     {
@@ -55,42 +55,41 @@ class Admin_office_model extends CI_Model
 
 
     /* End Datatable*/
-    public function del_admin_office($id)
-    {
+    public function del_Admin_office($id)
+        {
         $rs = $this->db
             ->where('id', $id)
             ->delete('coffice');
         return $rs;
-    }
+        }
 
+        
 
-    public function save_admin_office($data)
-    {
+    public function save_Admin_office($data)
+            {
 
-        $rs = $this->db
-            ->set("id", $data["id"])->set("name", $data["name"])
-            ->insert('coffice');
+                $rs = $this->db
+                    ->set("id", $data["id"])->set("name", $data["name"])
+                    ->insert('coffice');
 
-        return $rs;
+                return $this->db->insert_id();
 
-    }
+            }
+    public function update_Admin_office($data)
+            {
+                $rs = $this->db
+                    ->set("id", $data["id"])->set("name", $data["name"])->where("id",$data["id"])
+                    ->update('coffice');
 
-    public function update_admin_office($data)
-    {
-        $rs = $this->db
-            ->set("id", $data["id"])->set("name", $data["name"])->where("id", $data["id"])
-            ->update('coffice');
+                return $rs;
 
-        return $rs;
-
-    }
-
-    public function get_admin_office($id)
-    {
-        $rs = $this->db
-            ->where('id', $id)
-            ->get("coffice")
-            ->row();
-        return $rs;
-    }
+            }
+    public function get_Admin_office($id)
+                {
+                    $rs = $this->db
+                        ->where('id',$id)
+                        ->get("coffice")
+                        ->row();
+                    return $rs;
+                }
 }

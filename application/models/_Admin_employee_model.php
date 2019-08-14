@@ -98,7 +98,7 @@ class Admin_employee_model extends CI_Model
                     ->set("id", $data["id"])->set("prename", $data["prename"])->set("name", $data["name"])->set("sex", $data["sex"])->set("cid", $data["cid"])->set("position", $data["position"])->set("employee_type", $data["employee_type"])->set("group", $data["group"])->set("active", $data["active"])
                     ->insert('employee');
 
-                return $this->db->insert_id();
+                return $rs;
 
             }
     public function update_admin_employee($data)

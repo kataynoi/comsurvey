@@ -17,7 +17,7 @@ class Admin_cpu_model extends CI_Model
         $this->db->from($this->table);
         if (isset($_POST["search"]["value"])) {
             $this->db->group_start();
-            $this->db->like(" name", $_POST["search"]["value"]);
+            $this->db->like("name", $_POST["search"]["value"]);
             $this->db->group_end();
 
         }
@@ -69,21 +69,16 @@ class Admin_cpu_model extends CI_Model
             {
 
                 $rs = $this->db
-                    ->set("id", $data["id"])
-                    ->set("name", $data["name"])
-                    ->set("cpu_series", $data["cpu_series"])
+                    ->set("id", $data["id"])->set("name", $data["name"])->set("cpu_series", $data["cpu_series"])
                     ->insert('ccpu');
 
-                return $rs;
+                return $this->db->insert_id();
 
             }
     public function update_admin_cpu($data)
             {
                 $rs = $this->db
-                    ->set("id", $data["id"])
-                    ->set("name", $data["name"])
-                    ->set("cpu_series", $data["cpu_series"])
-                    ->where("id",$data["id"])
+                    ->set("id", $data["id"])->set("name", $data["name"])->set("cpu_series", $data["cpu_series"])->where("id",$data["id"])
                     ->update('ccpu');
 
                 return $rs;

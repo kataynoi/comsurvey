@@ -7,17 +7,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *
 
  */
-class Admin_use_status_model extends CI_Model
+class Admin_cbrand_series_model extends CI_Model
 {
-    var $table = "cuse_status";
-    var $order_column = Array('id','name',);
+    var $table = "cbrand_series as a";
+    var $order_column = Array('id','brand','name',);
 
     function make_query()
     {
-        $this->db->from($this->table);
+        $this->db->select('a.id,b.name as brand,a.name')
+            ->join('cbrand as b','a.brand = b.id')
+            ->from($this->table);
         if (isset($_POST["search"]["value"])) {
             $this->db->group_start();
-            $this->db->like("name", $_POST["search"]["value"]);
+            $this->db->like("b.name", $_POST["search"]["value"]);
+            $this->db->or_like("a.name", $_POST["search"]["value"]);
             $this->db->group_end();
 
         }
@@ -55,40 +58,44 @@ class Admin_use_status_model extends CI_Model
 
 
     /* End Datatable*/
-    public function del_admin_use_status($id)
+    public function del_admin_cbrand_series($id)
         {
         $rs = $this->db
             ->where('id', $id)
-            ->delete('cuse_status');
+            ->delete('cbrand_series');
         return $rs;
         }
 
-        
+        public function get_brand(){
+                        $rs = $this->db
+                        ->get("cbrand")
+                        ->result();
+                        return $rs;}
 
-    public function save_admin_use_status($data)
+    public function save_admin_cbrand_series($data)
             {
 
                 $rs = $this->db
-                    ->set("id", $data["id"])->set("name", $data["name"])
-                    ->insert('cuse_status');
-
-                return $this->db->insert_id();
-
-            }
-    public function update_admin_use_status($data)
-            {
-                $rs = $this->db
-                    ->set("id", $data["id"])->set("name", $data["name"])->where("id",$data["id"])
-                    ->update('cuse_status');
+                    ->set("id", $data["id"])->set("brand", $data["brand"])->set("name", $data["name"])
+                    ->insert('cbrand_series');
 
                 return $rs;
 
             }
-    public function get_admin_use_status($id)
+    public function update_admin_cbrand_series($data)
+            {
+                $rs = $this->db
+                    ->set("id", $data["id"])->set("brand", $data["brand"])->set("name", $data["name"])->where("id",$data["id"])
+                    ->update('cbrand_series');
+
+                return $rs;
+
+            }
+    public function get_admin_cbrand_series($id)
                 {
                     $rs = $this->db
                         ->where('id',$id)
-                        ->get("cuse_status")
+                        ->get("cbrand_series")
                         ->row();
                     return $rs;
                 }

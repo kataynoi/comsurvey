@@ -9,7 +9,7 @@
 <div class="row">
     <div class="panel panel-info ">
         <div class="panel-heading w3-theme">
-            <i class="fa fa-user fa-2x "></i> ระบบปฏิบัติการ
+            <i class="fa fa-user fa-2x "></i> ประเภท Operating System
              <button class="btn btn-success pull-right" id="add_data" data-toggle="modal" data-target="#frmModal"><i class="fa fa-plus-circle"></i> Add</button>
 </span>
 
@@ -38,22 +38,23 @@
 
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">เพิ่มระบบปฏิบัติการ</h4>
+        <h4 class="modal-title">เพิ่มประเภท Operating System</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
       <!-- Modal body -->
       <div class="modal-body">
-        <input type="hidden" id="action" value="insert"><div class="form-group">
+        <input type="hidden" id="action" value="insert">
+        <input type="hidden" class="form-control" id="row_id" placeholder="ROWID" value=""><div class="form-group">
 
-                    <input type="hidden" class="form-control" id="id" placeholder="ID" value="" disabled></div><div class="form-group">
+                    <input type="hidden" class="form-control" id="id" placeholder="ID" value=""></div><div class="form-group">
                     <label for="name">ชื่อระบบปฏิบัติการ</label>
                     <input type="text" class="form-control" id="name" placeholder="ชื่อระบบปฏิบัติการ" value=""></div>
       </div>
 
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-success" id="btn_save">Save</button><button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success" id="btn_save">Save</button><button type="button" class="btn btn-danger" id="btn_close" data-dismiss="modal">Close</button>
       </div>
 
     </div>

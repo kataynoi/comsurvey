@@ -48,6 +48,7 @@
             <!-- Modal body -->
             <div class="modal-body">
                 <input type="hidden" id="action" value="insert">
+                <input type="hidden" class="form-control" id="row_id" placeholder="ROWID" value="">
 
                 <div class="form-group">
 
@@ -60,7 +61,7 @@
             <!-- Modal footer -->
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" id="btn_save">Save</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" id="btn_close" data-dismiss="modal">Close</button>
             </div>
 
         </div>

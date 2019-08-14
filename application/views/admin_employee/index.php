@@ -9,7 +9,7 @@
 <div class="row">
     <div class="panel panel-info ">
         <div class="panel-heading w3-theme">
-            <i class="fa fa-user fa-2x "></i> ข้อมูลบุคลากร สสจ.มหาสารคาม
+            <i class="fa fa-user fa-2x "></i> ข้อมูลพนักงานเจ้าหน้าที่
             <button class="btn btn-success pull-right" id="add_data" data-toggle="modal" data-target="#frmModal"><i
                     class="fa fa-plus-circle"></i> Add
             </button>
@@ -24,7 +24,6 @@
                     <th>ID</th>
                     <th>คำนำหน้า</th>
                     <th>ชื่อสกุล</th>
-
                     <th>เลขประจำตัวประชาชน</th>
                     <th>ตำแหน่ง</th>
                     <th>ประเภทพนักงาน</th>
@@ -48,13 +47,14 @@
 
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">เพิ่มข้อมูลบุคลากร สสจ.มหาสารคาม</h4>
+                <h4 class="modal-title">เพิ่มข้อมูลพนักงานเจ้าหน้าที่</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
 
             <!-- Modal body -->
             <div class="modal-body">
                 <input type="hidden" id="action" value="insert">
+                <input type="hidden" class="form-control" id="row_id" placeholder="ROWID" value="">
 
                 <div class="form-group">
                     <label for="id">ID</label>
@@ -67,10 +67,7 @@
                     <input type="text" class="form-control" id="name" placeholder="ชื่อสกุล" value=""></div>
                 <div class="form-group">
                     <label for="sex">เพศ</label>
-                    <select class="form-control" id="sex"  value="">
-                        <option value="1">ชาย</option>
-                        <option value="2">หญิง</option>
-                    </select>
+                    <input type="text" class="form-control" id="sex" placeholder="เพศ" value=""></div>
                 <div class="form-group">
                     <label for="cid">เลขประจำตัวประชาชน</label>
                     <input type="text" class="form-control" id="cid" placeholder="เลขประจำตัวประชาชน" value=""></div>
@@ -97,18 +94,13 @@
                     </select></div>
                 <div class="form-group">
                     <label for="active">สถานะการใช้งาน</label>
-                    <select class="form-control" id="active"  value="">
-                        <option value="0">ระงับการใช้งาน</option>
-                        <option value="1">ใช้งาน</option>
-                    </select>
-
-                </div>
+                    <input type="text" class="form-control" id="active" placeholder="สถานะการใช้งาน" value=""></div>
             </div>
 
             <!-- Modal footer -->
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" id="btn_save">Save</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" id="btn_close" data-dismiss="modal">Close</button>
             </div>
 
         </div>

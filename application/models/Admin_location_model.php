@@ -72,7 +72,7 @@ class Admin_location_model extends CI_Model
                     ->set("id", $data["id"])->set("name", $data["name"])
                     ->insert('clocation');
 
-                return $rs;
+                return $this->db->insert_id();
 
             }
     public function update_admin_location($data)

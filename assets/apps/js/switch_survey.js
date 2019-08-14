@@ -9,7 +9,7 @@ $(document).ready(function() {
 
         "pageLength": 50,
         "ajax": {
-            url: site_url + '/admin_workgroup/fetch_admin_workgroup',
+            url: site_url + '/switch_survey/fetch_switch_survey',
             data: {
                 'csrf_token': csrf_token
             },
@@ -29,7 +29,7 @@ var crud = {};
 
 crud .ajax = {
     del_data:function (id,cb){
-        var url = '/admin_workgroup/del_admin_workgroup',
+        var url = '/switch_survey/del_switch_survey',
             params = {
                 id: id
             }
@@ -38,7 +38,7 @@ crud .ajax = {
             err ? cb(err) : cb(null, data);
         });
     },save:function (items,cb){
-             var url = '/admin_workgroup/save_admin_workgroup',
+             var url = '/switch_survey/save_switch_survey',
                  params = {
                      items: items
                  }
@@ -47,7 +47,7 @@ crud .ajax = {
                  err ? cb(err) : cb(null, data);
              });
     },get_update:function (id,cb){
-                   var url = '/admin_workgroup/get_admin_workgroup',
+                   var url = '/switch_survey/get_switch_survey',
                        params = {
                            id: id
                        }
@@ -80,7 +80,7 @@ crud.save = function (items,row_id) {
         }
         else {
             if(items.action == 'insert'){
-                crud.set_after_insert(items,data.id);
+                crud.set_after_insert(items);
             }else if(items.action == 'update'){
                 crud.set_after_update(items,row_id);
             }
@@ -111,24 +111,20 @@ crud.get_update = function (id,row_id) {
 crud.set_after_update = function (items,row_id) {
 
     var row_id = $('tr[name="' + row_id + '"]');
-    row_id.find("td:eq(0)").html(items.id);row_id.find("td:eq(1)").html(items.name);row_id.find("td:eq(2)").html(items.tel);row_id.find("td:eq(3)").html(items.fax);row_id.find("td:eq(4)").html(items.book_number);row_id.find("td:eq(5)").html(items.supervisors);row_id.find("td:eq(6)").html(items.note);
+    row_id.find("td:eq(0)").html(items.id);row_id.find("td:eq(1)").html(items.switchtype);row_id.find("td:eq(2)").html(items.brand);row_id.find("td:eq(3)").html(items.switch_series);row_id.find("td:eq(4)").html(items.porttype);row_id.find("td:eq(5)").html(items.port);row_id.find("td:eq(6)").html(items.location);row_id.find("td:eq(7)").html(items.start_use);row_id.find("td:eq(8)").html(items.use_status);row_id.find("td:eq(9)").html(items.serial_number);row_id.find("td:eq(10)").html(items.ip);
 
 }
-crud.set_after_insert = function (items,id) {
+crud.set_after_insert = function (items) {
+    $('<tr><td></td>'+
+        '<td>' +items.id+'</td>' +'<td>' +items.switchtype+'</td>' +'<td>' +items.brand+'</td>' +'<td>' +items.switch_series+'</td>' +'<td>' +items.porttype+'</td>' +'<td>' +items.port+'</td>' +'<td>' +items.location+'</td>' +'<td>' +items.start_use+'</td>' +'<td>' +items.use_status+'</td>' +'<td>' +items.serial_number+'</td>' +'<td>' +items.ip+'</td>' +
+        '<td>-</td>' +
+        '</tr>').insertBefore('table > tbody > tr:first');
 
-            $('<tr name="row'+(id+1)+'"><td>'+id+'</td>' +
-                '<td>' +items.id+'</td>' +'<td>' +items.name+'</td>' +'<td>' +items.tel+'</td>' +'<td>' +items.fax+'</td>' +'<td>' +items.book_number+'</td>' +'<td>' +items.supervisors+'</td>' +'<td>' +items.note+'</td>' +
-                '<td><div class="btn-group pull-right" role="group">' +
-                '<button class="btn btn-outline btn-success" data-btn="btn_view" data-id="' + id + '"><i class="fa fa-eye"></i></button>' +
-                '<button class="btn btn-outline btn-warning" data-btn="btn_edit" data-id="' + id + '"><i class="fa fa-edit"></i></button>' +
-                '<button class="btn btn-outline btn-danger" data-btn="btn_del" data-id="' + id + '"><i class="fa fa-trash"></i></button>' +
-                '</td></div>' +
-                '</tr>').insertBefore('table > tbody > tr:first');
 }
 
 crud.set_update = function (data,row_id) {
     $("#row_id").val(row_id);
-    $("#id").val(data.rows["id"]);$("#name").val(data.rows["name"]);$("#tel").val(data.rows["tel"]);$("#fax").val(data.rows["fax"]);$("#book_number").val(data.rows["book_number"]);$("#supervisors").val(data.rows["supervisors"]);$("#note").val(data.rows["note"]);
+    $("#id").val(data.rows["id"]);$("#switchtype").val(data.rows["switchtype"]);$("#brand").val(data.rows["brand"]);$("#switch_series").val(data.rows["switch_series"]);$("#porttype").val(data.rows["porttype"]);$("#port").val(data.rows["port"]);$("#location").val(data.rows["location"]);$("#start_use").val(data.rows["start_use"]);$("#use_status").val(data.rows["use_status"]);$("#serial_number").val(data.rows["serial_number"]);$("#ip").val(data.rows["ip"]);
 }
 
 $('#btn_save').on('click', function (e) {
@@ -138,7 +134,7 @@ $('#btn_save').on('click', function (e) {
     var row_id = $("#row_id").val();
     items.action = $('#action').val();
     // items.brand_name = $("#brand option:selected").text();
-    items.id=$("#id").val();items.name=$("#name").val();items.tel=$("#tel").val();items.fax=$("#fax").val();items.book_number=$("#book_number").val();items.supervisors=$("#supervisors").val();items.note=$("#note").val();
+    items.id=$("#id").val();items.switchtype=$("#switchtype").val();items.brand=$("#brand").val();items.switch_series=$("#switch_series").val();items.porttype=$("#porttype").val();items.port=$("#port").val();items.location=$("#location").val();items.start_use=$("#start_use").val();items.use_status=$("#use_status").val();items.serial_number=$("#serial_number").val();items.ip=$("#ip").val();
 
           if(validate(items)){
                 crud.save(items,row_id);
@@ -148,10 +144,6 @@ $('#btn_save').on('click', function (e) {
 
 $('#add_data').on('click', function (e) {
     e.preventDefault();
-    $("#frmModal input").prop('disabled', false);
-    $("#frmModal select").prop('disabled', false);
-    $("#frmModal textarea").prop('disabled', false);
-    $("#frmModal .btn").prop('disabled', false);
     app.clear_form();
 });
 
@@ -183,35 +175,14 @@ $(document).on('click', 'button[data-btn="btn_edit"]', function(e) {
     $('#action').val('update');
     $('#id').val(id);
     var row_id = $(this).parent().parent().parent().attr('name');
-        $("#frmModal input").prop('disabled', false);
-        $("#frmModal select").prop('disabled', false);
-        $("#frmModal textarea").prop('disabled', false);
-        $("#frmModal .btn").prop('disabled', false);
-
     crud.get_update(id,row_id);
-    $('#frmModal').modal('show');
-
-});
-
-$(document).on('click', 'button[data-btn="btn_view"]', function (e) {
-    e.preventDefault();
-    var id = $(this).data('id');
-    $('#action').val('update');
-    $('#id').val(id);
-    var row_id = $(this).parent().parent().parent().attr('name');
-    crud.get_update(id, row_id);
-    $("#frmModal input").prop('disabled', true);
-    $("#frmModalselect").prop('disabled', true);
-    $("#frmModaltextarea").prop('disabled', true);
-    $("#frmModal .btn").prop('disabled', true);
-    $("#btn_close").prop('disabled', false);
     $('#frmModal').modal('show');
 
 });
 
 function validate(items){
 
-    if (!items.id) { swal("กรุณาระบุรหัส");$("#id").focus();}else if (!items.name) { swal("กรุณาระบุชื่อกลุ่มงาน");$("#name").focus();}else if (!items.tel) { swal("กรุณาระบุเบอร์โทรกลุ่มงาน");$("#tel").focus();}else if (!items.fax) { swal("กรุณาระบุFAX กลุ่มงาน");$("#fax").focus();}else if (!items.book_number) { swal("กรุณาระบุเลขสารบรรณกลุ่มงาน");$("#book_number").focus();}else if (!items.supervisors) { swal("กรุณาระบุหัวหน้ากลุ่มงาน");$("#supervisors").focus();}else if (!items.note) { swal("กรุณาระบุบันทึกเพิ่มเติม");$("#note").focus();}
+    if (!items.id) { swal("กรุณาระบุID");$("#id").focus();}else if (!items.switchtype) { swal("กรุณาระบุประเภทสวิทย์");$("#switchtype").focus();}else if (!items.brand) { swal("กรุณาระบุยี่ห้อ");$("#brand").focus();}else if (!items.switch_series) { swal("กรุณาระบุรุ่น");$("#switch_series").focus();}else if (!items.porttype) { swal("กรุณาระบุประเภทของPort");$("#porttype").focus();}else if (!items.port) { swal("กรุณาระบุ");$("#port").focus();}else if (!items.location) { swal("กรุณาระบุสถานที่ตั้ง");$("#location").focus();}else if (!items.start_use) { swal("กรุณาระบุปีที่เริ่มใช้งาน");$("#start_use").focus();}else if (!items.use_status) { swal("กรุณาระบุสถานะการใช้งาน");$("#use_status").focus();}else if (!items.serial_number) { swal("กรุณาระบุหมายเลจครุภัณฑ์");$("#serial_number").focus();}else if (!items.ip) { swal("กรุณาระบุIP");$("#ip").focus();}
     else{
         return true;
     }

@@ -72,7 +72,7 @@ class Admin_operating_system_model extends CI_Model
                     ->set("id", $data["id"])->set("name", $data["name"])
                     ->insert('coperating_system');
 
-                return $rs;
+                return $this->db->insert_id();
 
             }
     public function update_admin_operating_system($data)

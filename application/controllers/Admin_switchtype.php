@@ -7,8 +7,7 @@ class Admin_switchtype extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-
-        if ($this->session->userdata("user_type")!=1)
+        if ($this->session->userdata("user_type") != 1)
             redirect(site_url('user/login'));
         $this->layout->setLeft('layout/left_admin');
         $this->layout->setLayout('admin_layout');
@@ -32,7 +31,10 @@ class Admin_switchtype extends CI_Controller
 
             $sub_array = array();
                 $sub_array[] = $row->id;$sub_array[] = $row->name;
-                $sub_array[] = '<div class="btn-group" role="group" ><button class="btn btn-warning" data-btn="btn_edit" data-id="' . $row->id . '">Edit</button><button class="btn btn-danger" data-btn="btn_del" data-id="' . $row->id . '">Delete</button></div>';
+                $sub_array[] = '<div class="btn-group pull-right" role="group" >
+                <button class="btn btn-outline btn-success" data-btn="btn_view" data-id="' . $row->id . '"><i class="fa fa-eye"></i></button>
+                <button class="btn btn-outline btn-warning" data-btn="btn_edit" data-id="' . $row->id . '"><i class="fa fa-edit"></i></button>
+                <button class="btn btn-outline btn-danger" data-btn="btn_del" data-id="' . $row->id . '"><i class="fa fa-trash"></i></button></div>';
             $data[] = $sub_array;
         }
         $output = array(
@@ -62,14 +64,20 @@ class Admin_switchtype extends CI_Controller
             $data = $this->input->post('items');
             if($data['action']=='insert'){
                 $rs=$this->crud->save_admin_switchtype($data);
+                if($rs){
+                    $json = '{"success": true,"id":'.$rs.'}';
+                }else{
+                    $json = '{"success": false}';
+                }
             }else if($data['action']=='update'){
                 $rs=$this->crud->update_admin_switchtype($data);
+                if($rs){
+                    $json = '{"success": true}';
+                }else{
+                    $json = '{"success": false}';
+                }
             }
-            if($rs){
-                $json = '{"success": true}';
-            }else{
-                $json = '{"success": false}';
-            }
+
 
             render_json($json);
         }

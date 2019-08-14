@@ -72,7 +72,7 @@ class Admin_printertype_model extends CI_Model
                     ->set("id", $data["id"])->set("name", $data["name"])
                     ->insert('cprintertype');
 
-                return $rs;
+                return $this->db->insert_id();
 
             }
     public function update_admin_printertype($data)

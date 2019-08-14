@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Admin_switchtype_model extends CI_Model
 {
     var $table = "cswitchtype";
-    var $order_column = Array('id','name',);
+    var $order_column = Array('id', 'name',);
 
     function make_query()
     {
@@ -56,40 +56,41 @@ class Admin_switchtype_model extends CI_Model
 
     /* End Datatable*/
     public function del_admin_switchtype($id)
-        {
+    {
         $rs = $this->db
             ->where('id', $id)
             ->delete('cswitchtype');
         return $rs;
-        }
+    }
 
-        
 
     public function save_admin_switchtype($data)
-            {
+    {
 
-                $rs = $this->db
-                    ->set("id", $data["id"])->set("name", $data["name"])
-                    ->insert('cswitchtype');
+        $rs = $this->db
+            ->set("id", $data["id"])->set("name", $data["name"])
+            ->insert('cswitchtype');
 
-                return $rs;
+        return $this->db->insert_id();
 
-            }
+    }
+
     public function update_admin_switchtype($data)
-            {
-                $rs = $this->db
-                    ->set("id", $data["id"])->set("name", $data["name"])->where("id",$data["id"])
-                    ->update('cswitchtype');
+    {
+        $rs = $this->db
+            ->set("id", $data["id"])->set("name", $data["name"])->where("id", $data["id"])
+            ->update('cswitchtype');
 
-                return $rs;
+        return $rs;
 
-            }
+    }
+
     public function get_admin_switchtype($id)
-                {
-                    $rs = $this->db
-                        ->where('id',$id)
-                        ->get("cswitchtype")
-                        ->row();
-                    return $rs;
-                }
+    {
+        $rs = $this->db
+            ->where('id', $id)
+            ->get("cswitchtype")
+            ->row();
+        return $rs;
+    }
 }

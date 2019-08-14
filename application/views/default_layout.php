@@ -20,6 +20,8 @@
     <!--<link href="<?php /*echo base_url()*/?>assets/vendor/css/left.css" rel="stylesheet"-->
     <!-- Custom CSS -->
     <link href="<?php echo base_url()?>assets/vendor/css/sb-admin-2.min.css" rel="stylesheet">
+
+    <link href="<?php echo base_url()?>assets/vendor/css/freeow.css" rel="stylesheet">
     <!--Set Color Page-->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue.css">
@@ -104,7 +106,7 @@
     <!-- /#page-wrapper -->
 
 </div>
-<div id="freeow" class="freeow freeow-bottom-right"></div>
+<div id="freeow" class=" freeow freeow-info freeow-bottom-right"></div>
 </body>
 
 </html>

@@ -72,7 +72,7 @@ class Admin_computertype_model extends CI_Model
                     ->set("id", $data["id"])->set("name", $data["name"])
                     ->insert('computertype');
 
-                return $rs;
+                return $this->db->insert_id();
 
             }
     public function update_admin_computertype($data)

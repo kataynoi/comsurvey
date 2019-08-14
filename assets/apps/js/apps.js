@@ -231,7 +231,7 @@ app.set_runtime = function()
     $('[data-rel="tooltip"]').tooltip();
 };
 
-app.disable_form = function()
+app.disable_form = function(target)
 {
     $("input").prop('disabled', true);
     $("select").prop('disabled', true);

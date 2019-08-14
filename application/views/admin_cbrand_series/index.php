@@ -45,24 +45,18 @@
                 <h4 class="modal-title">เพิ่มรุ่น ของอุปกรณ์</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
+
             <!-- Modal body -->
             <div class="modal-body">
                 <input type="hidden" id="action" value="insert">
+                <input type="hidden" class="form-control" id="row_id" placeholder="ROWID" value="">
 
                 <div class="form-group">
 
                     <input type="hidden" class="form-control" id="id" placeholder="ID" value=""></div>
                 <div class="form-group">
                     <label for="brand">ยี่ห้อ</label>
-                    <select class="form-control" id="brand" placeholder="ยี่ห้อ" value="">
-                        <option>-------</option>
-                        <?php
-                        foreach ($brand as $r) {
-                            echo "<option value=$r->id > $r->name </option>";
-                        }
-
-                        ?>
-                    </select></div>
+                    <input type="text" class="form-control" id="brand" placeholder="ยี่ห้อ" value=""></div>
                 <div class="form-group">
                     <label for="name">รุ่น</label>
                     <input type="text" class="form-control" id="name" placeholder="รุ่น" value=""></div>
@@ -71,7 +65,7 @@
             <!-- Modal footer -->
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" id="btn_save">Save</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" id="btn_close" data-dismiss="modal">Close</button>
             </div>
 
         </div>

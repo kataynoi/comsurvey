@@ -44,7 +44,8 @@
 
       <!-- Modal body -->
       <div class="modal-body">
-        <input type="hidden" id="action" value="insert"><div class="form-group">
+        <input type="hidden" id="action" value="insert">
+        <input type="hidden" class="form-control" id="row_id" placeholder="ROWID" value=""><div class="form-group">
 
                     <input type="hidden" class="form-control" id="id" placeholder="รหัส" value=""></div><div class="form-group">
                     <label for="name">ชื่อกลุ่มงาน</label>
@@ -59,13 +60,8 @@
                     <select  class="form-control" id="supervisors" placeholder="หัวหน้ากลุ่มงาน" value="">
                         <option>-------</option>
                         <?php
-                        foreach ($mas_users as $r) {
-                                if ($data["invit_type"] == $r->id) {
-                                    $s = "selected";
-                                } else {
-                                    $s = "";
-                                }
-                                echo "<option value=$r->id $s > $r->name </option>";} ?>
+                        foreach ($employee as $r) {
+                                echo "<option value=$r->id > $r->name </option>";} ?>
                     </select></div><div class="form-group">
                     <label for="note">บันทึกเพิ่มเติม</label>
                     <input type="text" class="form-control" id="note" placeholder="บันทึกเพิ่มเติม" value=""></div>
@@ -73,7 +69,7 @@
 
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-success" id="btn_save">Save</button><button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success" id="btn_save">Save</button><button type="button" class="btn btn-danger" id="btn_close" data-dismiss="modal">Close</button>
       </div>
 
     </div>
