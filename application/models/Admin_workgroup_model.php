@@ -9,15 +9,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 class Admin_workgroup_model extends CI_Model
 {
-    var $table = "cworkgroup";
+    var $table = "cworkgroup as a";
     var $order_column = Array('id','name','tel','fax','book_number','supervisors','note',);
 
     function make_query()
     {
-        $this->db->from($this->table);
+        $this->db->select('a.*,CONCAT(b.prename,b.name) as supervisors_name')
+            ->join('employee as b','a.supervisors = b.id')
+            ->from($this->table);
         if (isset($_POST["search"]["value"])) {
             $this->db->group_start();
-            $this->db->like("name", $_POST["search"]["value"]);
+            $this->db->like("a.name", $_POST["search"]["value"]);
             $this->db->group_end();
 
         }

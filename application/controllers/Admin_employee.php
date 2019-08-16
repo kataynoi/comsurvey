@@ -37,7 +37,7 @@ class Admin_employee extends CI_Controller
             $sub_array[] = $row->prename;
             $sub_array[] = $row->name;
             //$sub_array[] = $row->sex;
-            $sub_array[] = $row->cid;
+            //$sub_array[] = $row->cid;
             $sub_array[] = $row->position;
             $sub_array[] = $row->employee_type;
             $sub_array[] = $row->group;

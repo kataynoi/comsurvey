@@ -11,6 +11,9 @@ application/config/config.php
 application/controllers/Crud.php
 application/models/Crud_model.php
 application/views/crud
+application/views/layout/left_crud.php
+application/views/crud_layout.php
+assets/apps/js/crud.js
 /crud
 contributing.md
 /vendor
