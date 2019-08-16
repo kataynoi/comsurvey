@@ -12,7 +12,7 @@ class Admin_cbrand_series extends CI_Controller
                     redirect(site_url('user/login'));
                 $this->layout->setLeft('layout/left_admin');
                 $this->layout->setLayout('admin_layout');
-        $this->load->model('Admin_cbrand_series_model', 'crud');
+        $this->load->model('Admin_cbrand_series_model', 'create_crud');
     }
 
     public function index()

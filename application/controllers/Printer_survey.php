@@ -11,7 +11,7 @@ class Printer_survey extends CI_Controller
 
         //$this->layout->setLeft('layout/left');
         //$this->layout->setLayout('admin_layout');
-        $this->load->model('Printer_survey_model', 'crud');
+        $this->load->model('Printer_survey_model', 'create_crud');
     }
 
     public function index()

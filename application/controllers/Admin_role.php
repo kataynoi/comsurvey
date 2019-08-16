@@ -12,7 +12,7 @@ class Admin_role extends CI_Controller
             redirect(site_url('user/login'));
         $this->layout->setLeft('layout/left_admin');
         $this->layout->setLayout('admin_layout');
-        $this->load->model('Admin_role_model', 'crud');
+        $this->load->model('Admin_role_model', 'create_crud');
     }
 
     public function index()
