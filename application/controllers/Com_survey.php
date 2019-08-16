@@ -12,7 +12,7 @@ class Com_survey extends CI_Controller
           if (!$this->session->userdata("admin"))
                       redirect(site_url('user/login'));
           */
-        $this->load->model('Com_survey_model', 'create_crud');
+        $this->load->model('Com_survey_model', 'crud');
     }
 
     public function index()

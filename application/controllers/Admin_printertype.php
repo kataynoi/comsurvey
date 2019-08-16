@@ -12,7 +12,7 @@ class Admin_printertype extends CI_Controller
             redirect(site_url('user/login'));
         $this->layout->setLeft('layout/left_admin');
         $this->layout->setLayout('admin_layout');
-        $this->load->model('Admin_printertype_model', 'create_crud');
+        $this->load->model('Admin_printertype_model', 'crud');
     }
 
     public function index()
