@@ -55,7 +55,7 @@ class Admin_brand_model extends CI_Model
 
 
     /* End Datatable*/
-    public function del_admin_brand($id)
+    function del_admin_brand($id)
         {
         $rs = $this->db
             ->where('id', $id)
@@ -65,7 +65,7 @@ class Admin_brand_model extends CI_Model
 
         
 
-    public function save_admin_brand($data)
+    function save_admin_brand($data)
             {
 
                 $rs = $this->db
@@ -75,7 +75,7 @@ class Admin_brand_model extends CI_Model
                 return $this->db->insert_id();
 
             }
-    public function update_admin_brand($data)
+    function update_admin_brand($data)
             {
                 $rs = $this->db
                     ->set("id", $data["id"])->set("name", $data["name"])->where("id",$data["id"])
@@ -84,7 +84,7 @@ class Admin_brand_model extends CI_Model
                 return $rs;
 
             }
-    public function get_admin_brand($id)
+    function get_admin_brand($id)
                 {
                     $rs = $this->db
                         ->where('id',$id)
