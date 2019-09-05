@@ -1,7 +1,7 @@
 $(document).ready(function () {
     var dataTable = $('#table_data').DataTable({
         language: {
-            searchPlaceholder: "ค้นหา รุ่น,สถานที่ตั้ง,ผู้รับผิดชอบ"
+            searchPlaceholder: "ค้นหา รุ่น,สถานที่ตั้ง,ผู้รับผิดชอบ,หน่วยบริการที่รับผิดชอบ"
         },
         "processing": true,
         "serverSide": true,

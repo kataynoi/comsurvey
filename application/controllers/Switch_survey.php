@@ -80,4 +80,12 @@ class Switch_survey extends CI_Controller
                 $json = '{"success": true, "rows": ' . $rows . '}';
                 render_json($json);
     }
+    public function  get_switch_series()
+    {
+        $request = $this->input->post('query');
+        $query = "SELECT switch_series as value FROM switch_survey  WHERE switch_series LIKE '%".$request."%'";
+        $rs = $this->db->query($query)->result_array();
+        $rows = json_encode($rs);
+        render_json($rows);
+    }
 }
