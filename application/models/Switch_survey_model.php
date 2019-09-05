@@ -136,4 +136,12 @@ class Switch_survey_model extends CI_Model
                         ->row();
                     return $rs;
                 }
+    public function get_switch_series()
+                {
+                    $rs = $this->db
+                        ->select('switch_series as value')
+                        ->get("switch_survey")
+                        ->result();
+                    return $rs;
+                }
 }

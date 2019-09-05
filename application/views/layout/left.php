@@ -25,7 +25,7 @@
                         <a href="<?php echo site_url('printer_survey')?>">Printer</a>
                     </li>
                     <li>
-                        <a href="<?php echo site_url('network')?>">อุปกรณ์เครือข่าย</a>
+                        <a href="<?php echo site_url('switch_survey')?>">อุปกรณ์เครือข่าย</a>
                     </li>
 
                     <li>
@@ -47,9 +47,9 @@
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
-            <li>
-                <a href="<?php echo site_url('signin/')?>"><i class="far fa-calendar-check"></i> แจ้งซ่อม</a>
-            </li>
+<!--            <li>
+                <a href="<?php /*echo site_url('signin/')*/?>"><i class="far fa-calendar-check"></i> แจ้งซ่อม</a>
+            </li>-->
             <li>
                 <a href="<?php echo site_url('admin')?>"><i class="far fa-calendar-check"> Administrator</i></a>
             </li>
