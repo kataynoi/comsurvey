@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://'.$_SERVER['SERVER_NAME'].':8888/comsurvey';
+$config['base_url'] = 'http://'.$_SERVER['SERVER_NAME'].'/comsurvey-master';
 //$config['base_url'] = 'http://'.$_SERVER['SERVER_NAME'].'/e_office';
 
 /*

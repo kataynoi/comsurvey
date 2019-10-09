@@ -18,7 +18,7 @@ class Com_survey_model extends CI_Model
             ->join('computertype as b','a.computertype = b.id')
             ->join('cbrand_series as c','a.cbrand_series = c.id')
             ->join('clocation as d','a.location = d.id')
-            ->join('employee as e','a.owner = e.id')
+            ->join('employee as e','a.owner = e.id','left')
             ->from($this->table);
         if (isset($_POST["search"]["value"])) {
             $this->db->group_start();
